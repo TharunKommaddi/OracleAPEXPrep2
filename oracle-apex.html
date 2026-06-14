@@ -4,10 +4,183 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oracle APEX Interview Questions — APEX Interview Mastery</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+<style>
+:root {
+  --bg-base:#f5f0e8;--bg-surface:#ede7da;--bg-card:#faf7f2;--bg-card-hover:#fff9f3;
+  --bg-nav:rgba(245,240,232,0.94);--border-soft:rgba(160,130,100,0.13);
+  --border-mid:rgba(160,130,100,0.22);--border-accent:rgba(45,100,70,0.22);
+  --text-primary:#1c1208;--text-secondary:#5a4a35;--text-muted:#9a856a;--text-faint:#c4ad92;
+  --accent:#2d6446;--accent-light:#3a7d57;--accent-pale:#f0f7f3;--accent-border:rgba(45,100,70,0.2);
+  --shadow-sm:0 1px 4px rgba(100,70,40,0.06);--shadow-md:0 4px 20px rgba(100,70,40,0.09);
+  --shadow-lg:0 12px 40px rgba(100,70,40,0.12);
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-pill:100px;--transition:0.2s ease;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg-base);color:var(--text-primary);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:500;background:var(--bg-nav);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-soft);height:64px;display:flex;align-items:center;padding:0 48px;}
+.nav-logo{display:flex;align-items:center;gap:10px;margin-right:36px;flex-shrink:0;}
+.nav-logo-mark{width:32px;height:32px;border-radius:9px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;font-family:'Bricolage Grotesque',sans-serif;}
+.nav-logo-text{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:700;color:var(--text-primary);letter-spacing:-0.4px;}
+.nav-links{display:flex;gap:2px;flex:1;list-style:none;}
+.nav-links a{color:var(--text-secondary);font-size:14px;font-weight:500;padding:7px 12px;border-radius:var(--r-sm);transition:all var(--transition);display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.nav-links a:hover{color:var(--text-primary);background:var(--border-soft);}
+.nav-links a.active{color:var(--accent);font-weight:600;}
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 8px);left:0;background:var(--bg-card);border:1px solid var(--border-soft);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);min-width:180px;padding:8px;list-style:none;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.18s ease;z-index:600;}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r-sm);color:var(--text-secondary);font-size:14px;}
+.nav-dropdown-menu a:hover{background:var(--bg-surface);color:var(--accent);}
+@media(max-width:768px){.nav{padding:0 20px;}.nav-links{display:none;}}
+
+/* PAGE HEADER */
+.page-header{background:var(--bg-surface);border-bottom:1px solid var(--border-soft);padding:48px 48px 40px;}
+@media(max-width:768px){.page-header{padding:32px 20px;}}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;}
+.page-eyebrow::before{content:'';width:20px;height:2px;background:var(--accent);border-radius:1px;}
+.page-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1.5px;color:var(--text-primary);margin-bottom:8px;}
+.page-subtitle{color:var(--text-muted);font-size:16px;font-weight:300;}
+
+/* CONTAINER */
+.container{max-width:1000px;margin:0 auto;padding:32px 48px 72px;}
+@media(max-width:768px){.container{padding:24px 20px 48px;}}
+
+/* FILTER */
+.filter-section{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:var(--r-xl);padding:24px;margin-bottom:24px;box-shadow:var(--shadow-sm);}
+.filter-title{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.filter-title i{color:var(--accent);}
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.filter-tab{padding:7px 18px;border-radius:var(--r-pill);font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--border-soft);background:var(--bg-surface);color:var(--text-muted);transition:all var(--transition);font-family:'DM Sans',sans-serif;}
+.filter-tab:hover{border-color:var(--accent-border);color:var(--accent);}
+.filter-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.search-wrap{position:relative;}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-faint);font-size:13px;}
+.search-input{width:100%;padding:10px 14px 10px 38px;border-radius:var(--r-sm);border:1px solid var(--border-mid);background:var(--bg-surface);font-size:13px;font-family:'DM Sans',sans-serif;color:var(--text-primary);outline:none;transition:all var(--transition);}
+.search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(45,100,70,0.1);background:var(--bg-card);}
+
+/* QUESTION CARD */
+.question-container{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:var(--r-lg);margin-bottom:8px;box-shadow:var(--shadow-sm);overflow:hidden;transition:border-color var(--transition);}
+.question-container:hover{border-color:var(--accent-border);}
+.question-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;user-select:none;gap:12px;}
+.question-header:hover{background:var(--accent-pale);}
+.question-text{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--text-primary);line-height:1.4;flex:1;letter-spacing:-0.2px;}
+.question-details{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.difficulty-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:3px 10px;border-radius:var(--r-pill);white-space:nowrap;}
+.question-toggle{width:28px;height:28px;border-radius:50%;background:var(--bg-surface);border:1px solid var(--border-soft);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-muted);transition:transform .25s ease;flex-shrink:0;}
+.question-toggle.rotated{transform:rotate(180deg);}
+.question-content{display:none;padding:4px 16px 16px;}
+
+/* RICH SECTIONS */
+.rich-section{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:var(--r-md);margin:6px 0;overflow:hidden;}
+.rich-s-hdr{display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--border-soft);background:var(--bg-surface);}
+.rich-icon{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+.rich-icon.ans{background:var(--accent-pale);color:var(--accent);}
+.rich-icon.tbl{background:rgba(30,64,175,0.08);color:#1e40af;}
+.rich-icon.code{background:rgba(0,0,0,0.06);color:#555;}
+.rich-icon.before-ic{background:rgba(183,121,31,0.1);color:#b7791f;}
+.rich-icon.res{background:var(--accent-pale);color:var(--accent);}
+.rich-lbl{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700;color:var(--text-primary);}
+.rich-sub{font-size:11px;color:var(--text-muted);margin-left:auto;font-family:'DM Mono',monospace;}
+.rich-s-body{padding:16px 18px;}
+.ans-txt{font-size:14px;color:var(--text-secondary);line-height:1.85;font-weight:300;}
+
+/* TABLES */
+.rich-two-tbl{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:580px){.rich-two-tbl{grid-template-columns:1fr;}}
+.rich-tbl-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-muted);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+.rich-tbl-wrap{overflow-x:auto;border-radius:var(--r-sm);border:1px solid var(--border-soft);}
+.rich-tbl{width:100%;border-collapse:collapse;font-size:12px;font-family:'DM Mono',monospace;}
+.rich-tbl thead tr{background:var(--bg-surface);}
+.rich-tbl th{padding:8px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);border-bottom:1px solid var(--border-soft);white-space:nowrap;}
+.rich-tbl td{padding:8px 12px;border-bottom:1px solid var(--border-soft);color:var(--text-secondary);}
+.rich-tbl .td-null{color:var(--text-faint);font-style:italic;}
+.rich-tbl tbody tr:last-child td{border-bottom:none;}
+.rich-tbl tbody tr:hover{background:rgba(245,240,232,0.6);}
+
+/* CODE */
+.rich-code-blk{background:#1a1612;border-radius:0;overflow:hidden;}
+.rich-code-bar{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:rgba(0,0,0,0.25);border-bottom:1px solid rgba(255,255,255,0.06);}
+.rich-lang-tag{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#e6a050;}
+.rich-cp-btn{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);padding:3px 10px;border-radius:5px;cursor:pointer;font-size:11px;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:4px;transition:all .2s;}
+.rich-cp-btn:hover{background:rgba(255,255,255,0.13);color:#fff;}
+.rich-code-blk pre{margin:0!important;padding:16px 20px!important;background:transparent!important;font-size:12.5px!important;line-height:1.75!important;font-family:'DM Mono',monospace!important;text-shadow:none!important;overflow-x:auto;}
+.rich-code-blk code{font-family:'DM Mono',monospace!important;background:transparent!important;text-shadow:none!important;}
+.token.comment{color:#6b5a3e!important;font-style:italic;}
+.token.keyword{color:#e6a050!important;font-weight:600;}
+.token.string{color:#a8d080!important;}
+.token.number{color:#c5a3ff!important;}
+.token.function{color:#7ec8e3!important;}
+.token.operator{color:#e6a050!important;}
+.token.punctuation{color:#c4a882!important;}
+
+/* STATE PILLS */
+.state-pill{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:3px 12px;border-radius:var(--r-pill);margin-bottom:10px;}
+.state-pill.before{background:rgba(183,121,31,0.1);color:#92400e;border:1px solid rgba(183,121,31,0.25);}
+.state-pill.after{background:var(--accent-pale);color:var(--accent);border:1px solid var(--accent-border);}
+.rich-note{margin-top:8px;font-size:12px;color:var(--text-muted);font-style:italic;}
+
+/* OUTPUT */
+.rich-out-blk{background:#0f1117;border-radius:var(--r-sm);overflow:hidden;border:1px solid rgba(255,255,255,0.05);font-family:'DM Mono',monospace;}
+.rich-out-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:rgba(0,0,0,0.3);border-bottom:1px solid rgba(255,255,255,0.06);}
+.d-r{width:9px;height:9px;border-radius:50%;background:#ff5f57;}
+.d-y{width:9px;height:9px;border-radius:50%;background:#febc2e;}
+.d-g{width:9px;height:9px;border-radius:50%;background:#28c840;}
+.out-t{font-size:10px;color:rgba(255,255,255,0.25);margin-left:4px;}
+.out-body{padding:12px 16px;font-size:12px;line-height:1.85;color:#c9bfa8;}
+.out-body .l{display:block;}
+.out-body .ok{color:#a8d080;}
+.out-body .info{color:#7ec8e3;}
+.out-body .dim{color:rgba(255,255,255,0.25);font-style:italic;}
+
+/* TAKEAWAY */
+.rich-takeaway{display:flex;gap:12px;align-items:flex-start;background:var(--accent-pale);border:1px solid var(--accent-border);border-radius:var(--r-md);padding:14px 18px;margin:6px 0 2px;}
+.rich-tk-icon{width:30px;height:30px;background:var(--accent);color:#fff;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+.rich-tk-body h4{font-family:'Bricolage Grotesque',sans-serif;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:3px;text-transform:uppercase;letter-spacing:0.5px;}
+.rich-tk-body p{font-size:13px;color:var(--text-secondary);line-height:1.65;font-weight:300;}
+
+/* INNER DETAILS TOGGLE */
+.details-toggle-btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:7px 16px;border-radius:var(--r-pill);border:1.5px solid var(--accent-border);background:var(--accent-pale);color:var(--accent);font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;user-select:none;}
+.details-toggle-btn:hover{background:var(--accent);color:#fff;}
+.details-toggle-btn .toggle-icon{width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;transition:background 0.2s;}
+.details-toggle-btn:hover .toggle-icon{background:#fff;color:var(--accent);}
+.details-body{display:none;margin-top:4px;}
+.details-body.open{display:block;}
+
+/* JOIN BADGES */
+.join-type-header{display:flex;align-items:center;gap:10px;padding:12px 0 4px;margin-top:8px;}
+.join-badge{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:800;padding:4px 14px;border-radius:var(--r-pill);}
+.join-badge.inner{background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe;}
+.join-badge.left{background:var(--accent-pale);color:var(--accent);border:1px solid var(--accent-border);}
+.join-badge.right{background:rgba(124,58,237,0.08);color:#7c3aed;border:1px solid rgba(124,58,237,0.2);}
+.join-badge.full{background:rgba(183,121,31,0.08);color:#b7791f;border:1px solid rgba(183,121,31,0.2);}
+.join-badge-desc{font-size:12px;color:var(--text-muted);font-weight:300;}
+
+/* FOOTER */
+.footer{background:var(--bg-surface);border-top:1px solid var(--border-soft);padding:48px 48px 28px;}
+@media(max-width:768px){.footer{padding:40px 20px 24px;}}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+@media(max-width:560px){.footer-top{grid-template-columns:1fr;gap:24px;}}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.footer-logo-mark{width:28px;height:28px;border-radius:7px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;}
+.footer-logo-text{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--text-primary);}
+.footer-brand-desc{color:var(--text-muted);font-size:13px;line-height:1.7;font-weight:300;}
+.footer-col h4{font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-col ul a{color:var(--text-muted);font-size:13px;transition:color var(--transition);}
+.footer-col ul a:hover{color:var(--accent);}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-copy{color:var(--text-faint);font-size:12px;}
+</style>
 </head>
 <body>
 
@@ -17,7 +190,7 @@
     <span class="nav-logo-text">APEX Mastery</span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a onclick="navigate('home')" data-page="home"><i class="fas fa-home"></i> Home</a></li>
     <li><a href="oracle-sql.html"><i class="fas fa-database"></i> Oracle SQL</a></li>
     <li><a href="plsql.html"><i class="fas fa-code"></i> PL/SQL</a></li>
     <li><a href="oracle-apex.html" class="active"><i class="fas fa-layer-group"></i> APEX</a></li>
@@ -32,67 +205,13 @@
     </li>
     <li><a href="oracle-apex-quiz.html"><i class="fas fa-circle-question"></i> Quiz</a></li>
     <li><a href="pdf-resources.html"><i class="fas fa-file-pdf"></i> PDFs</a></li>
-    <li><a href="index.html#about"><i class="fas fa-info-circle"></i> About</a></li>
-    <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    <li><a onclick="navigate('about')" data-page="about"><i class="fas fa-info-circle"></i> About</a></li>
+    <li><a onclick="navigate('contact')" data-page="contact"><i class="fas fa-envelope"></i> Contact</a></li>
   </ul>
   <div class="nav-actions" id="navActions">
-    <a href="index.html" class="btn-nav-ghost">Sign In</a>
-    <a href="index.html" class="btn-nav-primary"><i class="fas fa-rocket"></i> Get Access</a>
+    <!-- Injected by JS based on auth state -->
   </div>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" onclick="toggleHamburger()">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
-
-<!-- Mobile Drawer -->
-<div class="nav-mobile-drawer" id="mobileDrawer">
-  <ul class="nav-mobile-links">
-    <li><div class="nav-mobile-section-label">Topics</div></li>
-    <li><a href="index.html" onclick="closeHamburger()"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="oracle-sql.html" onclick="closeHamburger()"><i class="fas fa-database"></i> Oracle SQL</a></li>
-    <li><a href="plsql.html" onclick="closeHamburger()"><i class="fas fa-code"></i> PL/SQL</a></li>
-    <li><a href="oracle-apex.html" onclick="closeHamburger()"><i class="fas fa-layer-group"></i> APEX</a></li>
-    <li><a href="oracle-apex-quiz.html" onclick="closeHamburger()"class="active"><i class="fas fa-circle-question"></i> Quiz</a></li>
-    <li><a href="pdf-resources.html" onclick="closeHamburger()"><i class="fas fa-file-pdf"></i> PDFs</a></li>
-    <div class="nav-mobile-divider"></div>
-    <li><div class="nav-mobile-section-label">Frontend</div></li>
-    <li><a href="html-questions.html" onclick="closeHamburger()"><i class="fab fa-html5"></i> HTML</a></li>
-    <li><a href="css-questions.html" onclick="closeHamburger()"><i class="fab fa-css3-alt"></i> CSS</a></li>
-    <li><a href="javascript-questions.html" onclick="closeHamburger()"><i class="fab fa-js"></i> JavaScript</a></li>
-    <li><a href="jquery-questions.html" onclick="closeHamburger()"><i class="fas fa-dollar-sign"></i> jQuery</a></li>
-    <div class="nav-mobile-divider"></div>
-    <li><div class="nav-mobile-section-label">Platform</div></li>
-    <li><a href="index.html#about" onclick="closeHamburger()"><i class="fas fa-info-circle"></i> About</a></li>
-    <li><a href="index.html#contact" onclick="closeHamburger()"><i class="fas fa-envelope"></i> Contact</a></li>
-    <li><a href="index.html#login" onclick="closeHamburger()"><i class="fas fa-rocket"></i> Request Access</a></li>
-    <li><a href="index.html#admin" onclick="closeHamburger()"><i class="fas fa-user-shield"></i> Admin</a></li>
-  </ul>
-  <div class="nav-mobile-actions">
-    <a href="index.html" class="nav-mobile-btn ghost" onclick="closeHamburger()"><i class="fas fa-sign-in-alt"></i> Sign In</a>
-    <a href="index.html" class="nav-mobile-btn primary" onclick="closeHamburger()"><i class="fas fa-rocket"></i> Get Access</a>
-  </div>
-</div>
-
-<script>
-function toggleHamburger(){
-  var d=document.getElementById('mobileDrawer'),b=document.getElementById('navHamburger');
-  if(!d||!b)return;
-  var o=d.classList.contains('open');
-  d.classList.toggle('open',!o);b.classList.toggle('open',!o);
-  document.body.style.overflow=o?'':'hidden';
-}
-function closeHamburger(){
-  var d=document.getElementById('mobileDrawer'),b=document.getElementById('navHamburger');
-  if(d)d.classList.remove('open');if(b)b.classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('click',function(e){
-  var d=document.getElementById('mobileDrawer'),b=document.getElementById('navHamburger');
-  if(!d||!b)return;
-  if(d.classList.contains('open')&&!d.contains(e.target)&&!b.contains(e.target))closeHamburger();
-});
-window.addEventListener('resize',function(){if(window.innerWidth>768)closeHamburger();});
-</script>
 
 <div class="page-header">
   <div style="max-width:1000px;margin:0 auto">
@@ -129,7 +248,7 @@ window.addEventListener('resize',function(){if(window.innerWidth>768)closeHambur
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle APEX (Application Express) is a low-code web application development platform built on Oracle Database. It allows developers to build scalable, secure enterprise web applications using only a web browser. APEX provides built-in features like authentication, authorization, UI components, and direct database integration, making it ideal for rapidly building data-driven applications without needing deep front-end expertise.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle APEX (Application Express) is a low-code web application development platform built on Oracle Database.<br><br>It allows developers to build scalable, secure enterprise web applications using only a web browser.<br><br>APEX provides built-in features like authentication, authorization, UI components, and direct database integration, making it ideal for rapidly building data-driven applications without needing deep front-end expertise.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -159,7 +278,7 @@ WHERE  workspace = 'MY_WORKSPACE';</code></pre></div></div></div><div class="ric
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An Oracle APEX application consists of Pages (UI screens), Shared Components (reusable elements like navigation menus, lists of values, templates), Application Processes and Computations (server-side logic), Authentication Schemes (who can log in), Authorization Schemes (what they can access), and Substitution Strings (global variables). Each page has regions, items, buttons, and processes that define its layout and behaviour.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An Oracle APEX application consists of Pages (UI screens), Shared Components (reusable elements like navigation menus, lists of values, templates), Application Processes and Computations (server-side logic), Authentication Schemes (who can log in), Authorization Schemes (what they can access), and Substitution Strings (global variables).<br><br>Each page has regions, items, buttons, and processes that define its layout and behaviour.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -187,7 +306,7 @@ WHERE  application_id = :APP_ID;</code></pre></div></div></div><div class="rich-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An APEX workspace is a shared work area where developers build applications. Each workspace is mapped to one or more Oracle database schemas. The workspace controls which schemas developers can access, and all APEX metadata (pages, regions, items) is stored in the APEX internal schema (APEX_xxxxxx). A workspace can have multiple developers with different roles (Developer, Workspace Admin, End User).</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An APEX workspace is a shared work area where developers build applications.<br><br>Each workspace is mapped to one or more Oracle database schemas.<br><br>The workspace controls which schemas developers can access, and all APEX metadata (pages, regions, items) is stored in the APEX internal schema (APEX_xxxxxx).<br><br>A workspace can have multiple developers with different roles (Developer, Workspace Admin, End User).</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -218,7 +337,7 @@ END;
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX pages can be Normal (full page render), Modal Dialog (popup overlay on top of current page), Non-Modal Dialog (floating window), or Drawer (slide-in panel). Normal pages replace the current view. Modal dialogs are ideal for forms and confirmations as they keep context on the parent page. Drawers are used for secondary content without leaving the main view. The page mode affects how the page is rendered and how it closes.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX pages can be Normal (full page render), Modal Dialog (popup overlay on top of current page), Non-Modal Dialog (floating window), or Drawer (slide-in panel).<br><br>Normal pages replace the current view.<br><br>Modal dialogs are ideal for forms and confirmations as they keep context on the parent page.<br><br>Drawers are used for secondary content without leaving the main view.<br><br>The page mode affects how the page is rendered and how it closes.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -247,7 +366,7 @@ apex_util.redirect_url(
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX Items are form fields on a page that hold values — they map to HTML input elements and store data in session state. Types include Text Field, Text Area, Select List, Radio Group, Checkbox, Date Picker, File Browse, Hidden, Display Only, Rich Text Editor, Shuttle, and more. Items are referenced in SQL queries and PL/SQL using bind syntax :P1_ITEM_NAME. Their values persist in session state between page submissions.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX Items are form fields on a page that hold values — they map to HTML input elements and store data in session state.<br><br>Types include Text Field, Text Area, Select List, Radio Group, Checkbox, Date Picker, File Browse, Hidden, Display Only, Rich Text Editor, Shuttle, and more.<br><br>Items are referenced in SQL queries and PL/SQL using bind syntax :P1_ITEM_NAME.<br><br>Their values persist in session state between page submissions.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -279,7 +398,7 @@ apex_util.set_session_state('P1_STATUS', 'ACTIVE');</code></pre></div></div></di
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Session State is APEX's mechanism for storing page item values on the server between page requests. When a user submits a page, all item values are saved in session state in the APEX schema. These values can be read using bind variables (:ITEM_NAME) in SQL and PL/SQL, or using the V() and NV() functions. Session state persists for the duration of the user's session and can be cleared programmatically.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Session State is APEX's mechanism for storing page item values on the server between page requests.<br><br>When a user submits a page, all item values are saved in session state in the APEX schema.<br><br>These values can be read using bind variables (:ITEM_NAME) in SQL and PL/SQL, or using the V() and NV() functions.<br><br>Session state persists for the duration of the user's session and can be cleared programmatically.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -310,7 +429,7 @@ apex_util.clear_app_cache(p_app_id =&gt; :APP_ID);</code></pre></div></div></div
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">A Region is a container on an APEX page that holds content. Regions can be of type Classic Report, Interactive Report, Interactive Grid, Form, Chart, Calendar, Tree, Map, PL/SQL Dynamic Content, Static Content, and more. Each region has a position (slot) on the page, a template controlling its visual style, and optional conditions that control when it renders. Regions are the primary building blocks for APEX page layouts.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">A Region is a container on an APEX page that holds content.<br><br>Regions can be of type Classic Report, Interactive Report, Interactive Grid, Form, Chart, Calendar, Tree, Map, PL/SQL Dynamic Content, Static Content, and more.<br><br>Each region has a position (slot) on the page, a template controlling its visual style, and optional conditions that control when it renders.<br><br>Regions are the primary building blocks for APEX page layouts.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -342,7 +461,7 @@ END;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">A Classic Report renders a fixed SQL query result as an HTML table with limited user control — the layout is fully defined by the developer. An Interactive Report (IR) gives end users powerful self-service features: column search, filter, sort, highlight, aggregate, pivot, download (CSV/Excel), and saved report views. IRs store user customisations in the database per user. Use Classic Reports when you need precise control over layout; use Interactive Reports when users need to explore data.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">A Classic Report renders a fixed SQL query result as an HTML table with limited user control — the layout is fully defined by the developer.<br><br>An Interactive Report (IR) gives end users powerful self-service features: column search, filter, sort, highlight, aggregate, pivot, download (CSV/Excel), and saved report views.<br><br>IRs store user customisations in the database per user.<br><br>Use Classic Reports when you need precise control over layout; use Interactive Reports when users need to explore data.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -376,7 +495,7 @@ apex_ir.reset_report(
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An Interactive Grid is an APEX region type that displays data in an editable spreadsheet-like grid. Users can add, edit, and delete rows directly in the grid without navigating to separate forms. IGs support inline editing, row selection, bulk operations, and all the column manipulation features of Interactive Reports (filtering, sorting, grouping). IGs require a primary key column and use APEX's built-in DML processing or custom PL/SQL.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An Interactive Grid is an APEX region type that displays data in an editable spreadsheet-like grid.<br><br>Users can add, edit, and delete rows directly in the grid without navigating to separate forms.<br><br>IGs support inline editing, row selection, bulk operations, and all the column manipulation features of Interactive Reports (filtering, sorting, grouping).<br><br>IGs require a primary key column and use APEX's built-in DML processing or custom PL/SQL.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -410,7 +529,7 @@ apex.region('employee-grid').refresh();</code></pre></div></div></div><div class
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Dynamic Actions are APEX's declarative event-driven framework for adding client-side interactivity without writing JavaScript. You define a When condition (which event on which element), optional True/False conditions, and True/False Actions (like Show, Hide, Set Value, Execute JavaScript, Refresh, Disable, Enable, etc.). Dynamic Actions fire in the browser and can also execute server-side AJAX callbacks to run PL/SQL. They are the primary way to add interactivity in APEX.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Dynamic Actions are APEX's declarative event-driven framework for adding client-side interactivity without writing JavaScript.<br><br>You define a When condition (which event on which element), optional True/False conditions, and True/False Actions (like Show, Hide, Set Value, Execute JavaScript, Refresh, Disable, Enable, etc.).<br><br>Dynamic Actions fire in the browser and can also execute server-side AJAX callbacks to run PL/SQL.<br><br>They are the primary way to add interactivity in APEX.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -445,7 +564,7 @@ END;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Substitution Strings are APEX built-in variables prefixed with &amp; and suffixed with . (e.g. &amp;APP_ID.) that get replaced with their values when pages render. Common ones include &amp;APP_ID. (application ID), &amp;APP_SESSION. (session ID), &amp;APP_USER. (logged-in username), &amp;APP_PAGE_ID. (current page), and &amp;ITEM_NAME. (page item value). They can be used in HTML, SQL, URLs, and text regions. Use V('ITEM_NAME') in PL/SQL contexts instead.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Substitution Strings are APEX built-in variables prefixed with &amp; and suffixed with . (e.g. &amp;APP_ID.) that get replaced with their values when pages render.<br><br>Common ones include &amp;APP_ID. (application ID), &amp;APP_SESSION. (session ID), &amp;APP_USER. (logged-in username), &amp;APP_PAGE_ID. (current page), and &amp;ITEM_NAME. (page item value).<br><br>They can be used in HTML, SQL, URLs, and text regions.<br><br>Use V('ITEM_NAME') in PL/SQL contexts instead.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -478,7 +597,7 @@ SELECT * FROM employees WHERE created_by = :APP_USER;
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">A List of Values (LOV) is a shared component in APEX that defines the options available in select lists, radio groups, checkboxes, and popup LOVs. LOVs can be Static (hardcoded values like Yes/No), or Dynamic (based on a SQL query returning display/return value pairs). Shared LOVs are defined once and reused across multiple pages. LOVs can also be defined inline on a specific page item when not needed elsewhere.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">A List of Values (LOV) is a shared component in APEX that defines the options available in select lists, radio groups, checkboxes, and popup LOVs.<br><br>LOVs can be Static (hardcoded values like Yes/No), or Dynamic (based on a SQL query returning display/return value pairs).<br><br>Shared LOVs are defined once and reused across multiple pages.<br><br>LOVs can also be defined inline on a specific page item when not needed elsewhere.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -511,7 +630,7 @@ ORDER  BY job_title;</code></pre></div></div></div><div class="rich-section"><di
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An Authentication Scheme defines how users prove their identity to access an APEX application. APEX supports several types: Application Express Accounts (users stored in APEX), Database Accounts (Oracle DB users), LDAP Directory, Social Sign-In (OAuth2 like Google), Custom (PL/SQL function returning true/false), and No Authentication (public access). Each application has exactly one active authentication scheme. You can switch schemes without changing application logic.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An Authentication Scheme defines how users prove their identity to access an APEX application.<br><br>APEX supports several types: Application Express Accounts (users stored in APEX), Database Accounts (Oracle DB users), LDAP Directory, Social Sign-In (OAuth2 like Google), Custom (PL/SQL function returning true/false), and No Authentication (public access).<br><br>Each application has exactly one active authentication scheme.<br><br>You can switch schemes without changing application logic.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -547,7 +666,7 @@ END;
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An Authorization Scheme controls what authenticated users can do — it answers 'what are you allowed to access?' after authentication answers 'who are you?'. Authorization schemes can be PL/SQL functions, EXISTS SQL queries, or built-in types like 'Has Role'. They can be applied to pages, regions, items, buttons, and menu entries. If a user fails an authorization check, they see an unauthorized error or are redirected. Multiple schemes can be combined.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">An Authorization Scheme controls what authenticated users can do — it answers 'what are you allowed to access?' after authentication answers 'who are you?'.<br><br>Authorization schemes can be PL/SQL functions, EXISTS SQL queries, or built-in types like 'Has Role'.<br><br>They can be applied to pages, regions, items, buttons, and menu entries.<br><br>If a user fails an authorization check, they see an unauthorized error or are redirected.<br><br>Multiple schemes can be combined.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -583,7 +702,7 @@ WHERE  username  = :APP_USER
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Values can be passed between APEX pages in several ways: via URL parameters (f?p=APP:PAGE:SESSION:::ITEMS:VALUES), by setting session state in a process before branching, using the Request value, via hidden items on the target page, or using the APEX_PAGE.GET_URL function with item parameters. For modal dialogs, you can close the dialog and refresh the parent using apex_util.close_dialog or the Close Dialog dynamic action with return items.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Values can be passed between APEX pages in several ways: via URL parameters (f?p=APP:PAGE:SESSION:::ITEMS:VALUES), by setting session state in a process before branching, using the Request value, via hidden items on the target page, or using the APEX_PAGE.GET_URL function with item parameters.<br><br>For modal dialogs, you can close the dialog and refresh the parent using apex_util.close_dialog or the Close Dialog dynamic action with return items.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -620,7 +739,7 @@ apex_util.close_dialog(
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The APEX f?p URL syntax is: f?p=APP_ID:PAGE_ID:SESSION:REQUEST:DEBUG:CLEAR_CACHE:ITEMS:VALUES:PRINTER_FRIENDLY. Each position is separated by colons. APP_ID is the application ID or alias, PAGE_ID is the target page, SESSION is the session ID, REQUEST triggers a page process, CLEAR_CACHE clears specific page caches, and ITEMS/VALUES are colon-separated lists of items to set. Positions can be left empty using consecutive colons.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The APEX f?p URL syntax is: f?p=APP_ID:PAGE_ID:SESSION:REQUEST:DEBUG:CLEAR_CACHE:ITEMS:VALUES:PRINTER_FRIENDLY.<br><br>Each position is separated by colons.<br><br>APP_ID is the application ID or alias, PAGE_ID is the target page, SESSION is the session ID, REQUEST triggers a page process, CLEAR_CACHE clears specific page caches, and ITEMS/VALUES are colon-separated lists of items to set.<br><br>Positions can be left empty using consecutive colons.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -659,7 +778,7 @@ SELECT apex_page.get_url(
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Processes are server-side PL/SQL blocks or built-in actions that execute at specific points during page processing. They can run On Load (before rendering), On Submit (after a button is clicked), On Demand (AJAX callback), or as Background Jobs. Common built-in process types include Form - Automatic Row Processing (DML), Clear Session State, Close Dialog, and Execute Code. Processes can have conditions, error handling, and success messages. They run in sequence order.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Processes are server-side PL/SQL blocks or built-in actions that execute at specific points during page processing.<br><br>They can run On Load (before rendering), On Submit (after a button is clicked), On Demand (AJAX callback), or as Background Jobs.<br><br>Common built-in process types include Form - Automatic Row Processing (DML), Clear Session State, Close Dialog, and Execute Code.<br><br>Processes can have conditions, error handling, and success messages.<br><br>They run in sequence order.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -700,7 +819,7 @@ END;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The APEX_ERROR package provides APIs to add, manage, and display errors on APEX pages. The main procedure is APEX_ERROR.ADD_ERROR which lets you add errors programmatically during page processing. Errors can be displayed inline next to a specific item, in a notification at the top of the page, or in a separate error region. This is used in validation processes and after-submit processes to return meaningful errors to users without using RAISE_APPLICATION_ERROR.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The APEX_ERROR package provides APIs to add, manage, and display errors on APEX pages.<br><br>The main procedure is APEX_ERROR.ADD_ERROR which lets you add errors programmatically during page processing.<br><br>Errors can be displayed inline next to a specific item, in a notification at the top of the page, or in a separate error region.<br><br>This is used in validation processes and after-submit processes to return meaningful errors to users without using RAISE_APPLICATION_ERROR.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -737,7 +856,7 @@ apex_error.add_error(
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Validations are declarative or PL/SQL-based checks that run on page submission before processes execute. If a validation fails, it displays an error and stops processing. Types include: Item is NOT NULL, Item is Numeric, Item contains valid date, SQL query returns no rows (EXISTS check), PL/SQL function returns TRUE, and Regular Expression. Validations can be attached to specific items or the whole page, and can have conditions controlling when they fire.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Validations are declarative or PL/SQL-based checks that run on page submission before processes execute.<br><br>If a validation fails, it displays an error and stops processing.<br><br>Types include: Item is NOT NULL, Item is Numeric, Item contains valid date, SQL query returns no rows (EXISTS check), PL/SQL function returns TRUE, and Regular Expression.<br><br>Validations can be attached to specific items or the whole page, and can have conditions controlling when they fire.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -775,7 +894,7 @@ WHERE dept_id = :P1_DEPT_ID;
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX handles DML in two ways. Automatic Row Processing (ARP) uses the built-in Form process type that automatically generates INSERT/UPDATE/DELETE SQL based on the form's source table and items. The form determines whether to insert or update based on the primary key value. Alternatively, you can write custom PL/SQL processes for full control. ARP supports optimistic locking (row version checking) to prevent lost updates when multiple users edit the same record.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX handles DML in two ways.<br><br>Automatic Row Processing (ARP) uses the built-in Form process type that automatically generates INSERT/UPDATE/DELETE SQL based on the form's source table and items.<br><br>The form determines whether to insert or update based on the primary key value.<br><br>Alternatively, you can write custom PL/SQL processes for full control.<br><br>ARP supports optimistic locking (row version checking) to prevent lost updates when multiple users edit the same record.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -817,7 +936,7 @@ END;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_UTIL is a core APEX package providing utility functions for session state management, user management, security, date handling, and more. Key procedures include: SET_SESSION_STATE (set item values), GET_SESSION_STATE / V() (read values), REDIRECT_URL (navigate), COUNT_ROWS (count query results), IS_LOGIN_PASSWORD_VALID (authentication), GET_USER_ROLES, EXPIRE_PASSWORD, and DOWNLOAD_FILE. It's the Swiss army knife of APEX server-side development.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_UTIL is a core APEX package providing utility functions for session state management, user management, security, date handling, and more.<br><br>Key procedures include: SET_SESSION_STATE (set item values), GET_SESSION_STATE / V() (read values), REDIRECT_URL (navigate), COUNT_ROWS (count query results), IS_LOGIN_PASSWORD_VALID (authentication), GET_USER_ROLES, EXPIRE_PASSWORD, and DOWNLOAD_FILE.<br><br>It's the Swiss army knife of APEX server-side development.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -857,7 +976,7 @@ apex_util.download_file(
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APP_USER is an APEX substitution string that holds the username of the currently authenticated user. It is set during authentication and available throughout the session. In PL/SQL you access it via V('APP_USER') or :APP_USER. APEX_APPLICATION_GLOBAL is a package that provides access to global application-level information at runtime, such as the application ID, security group ID, and user info. These are essential for building multi-user, personalised applications.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APP_USER is an APEX substitution string that holds the username of the currently authenticated user.<br><br>It is set during authentication and available throughout the session.<br><br>In PL/SQL you access it via V('APP_USER') or :APP_USER.<br><br>APEX_APPLICATION_GLOBAL is a package that provides access to global application-level information at runtime, such as the application ID, security group ID, and user info.<br><br>These are essential for building multi-user, personalised applications.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -894,7 +1013,7 @@ END;
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX Collections are temporary multi-column data stores (like session-level tables) that persist for the duration of a session. They are useful for storing intermediate data during multi-step wizards, shopping cart items, or data that hasn't been committed yet. Collections are created with APEX_COLLECTION.CREATE_COLLECTION, rows are added with ADD_MEMBER, modified with UPDATE_MEMBER, and queried via the APEX_COLLECTIONS view. All data is lost when the session ends.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX Collections are temporary multi-column data stores (like session-level tables) that persist for the duration of a session.<br><br>They are useful for storing intermediate data during multi-step wizards, shopping cart items, or data that hasn't been committed yet.<br><br>Collections are created with APEX_COLLECTION.CREATE_COLLECTION, rows are added with ADD_MEMBER, modified with UPDATE_MEMBER, and queried via the APEX_COLLECTIONS view.<br><br>All data is lost when the session ends.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -933,7 +1052,7 @@ apex_collection.delete_collection('CART_ITEMS');</code></pre></div></div></div><
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle REST Data Services (ORDS) enables you to expose Oracle Database objects and APEX applications as RESTful APIs. You can enable REST on database objects using ORDS.ENABLE_OBJECT or through APEX's RESTful Services module. REST handlers are defined for GET, POST, PUT, DELETE HTTP methods with URL patterns. Parameters are bound using :param syntax. APEX also provides REST Enabled SQL for ad-hoc REST calls and the APEX_WEB_SERVICE package for consuming external REST APIs.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle REST Data Services (ORDS) enables you to expose Oracle Database objects and APEX applications as RESTful APIs.<br><br>You can enable REST on database objects using ORDS.ENABLE_OBJECT or through APEX's RESTful Services module.<br><br>REST handlers are defined for GET, POST, PUT, DELETE HTTP methods with URL patterns.<br><br>Parameters are bound using :param syntax.<br><br>APEX also provides REST Enabled SQL for ad-hoc REST calls and the APEX_WEB_SERVICE package for consuming external REST APIs.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -974,7 +1093,7 @@ WHERE  department_id = :dept_id;
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX Plugins extend the built-in component types with custom functionality packaged as reusable components. Plugin types include Region (custom UI containers), Item (custom form inputs), Process (custom server-side actions), Dynamic Action (custom client-side events/actions), and Authentication/Authorization. Plugins consist of a PL/SQL callback function, JavaScript/CSS files, and metadata. They can be exported, imported, and shared across applications. apex.oracle.com/plugins has a community plugin library.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX Plugins extend the built-in component types with custom functionality packaged as reusable components.<br><br>Plugin types include Region (custom UI containers), Item (custom form inputs), Process (custom server-side actions), Dynamic Action (custom client-side events/actions), and Authentication/Authorization.<br><br>Plugins consist of a PL/SQL callback function, JavaScript/CSS files, and metadata.<br><br>They can be exported, imported, and shared across applications. apex.oracle.com/plugins has a community plugin library.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1013,7 +1132,7 @@ END;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX handles file uploads via the File Browse item type, which stores uploaded files in the APEX_APPLICATION_FILES or WWV_FLOW_FILES table as BLOBs. For downloads, you use the Download File process or a custom PL/SQL process that uses APEX_UTIL.DOWNLOAD_FILE or WPG_DOCLOAD.DOWNLOAD_FILE to stream a BLOB to the browser. For large files, you should use chunked uploads or Oracle's BLOB storage with proper MIME types and Content-Disposition headers.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX handles file uploads via the File Browse item type, which stores uploaded files in the APEX_APPLICATION_FILES or WWV_FLOW_FILES table as BLOBs.<br><br>For downloads, you use the Download File process or a custom PL/SQL process that uses APEX_UTIL.DOWNLOAD_FILE or WPG_DOCLOAD.DOWNLOAD_FILE to stream a BLOB to the browser.<br><br>For large files, you should use chunked uploads or Oracle's BLOB storage with proper MIME types and Content-Disposition headers.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1056,7 +1175,7 @@ apex_util.download_file(
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Page Load processing runs when a page is first rendered in the browser — it includes before-header processes, computations, regions rendering (SQL queries executing), and after-footer processes. On Submit processing runs when a user clicks a submit button — it includes validations (if any fail, processing stops), processes (DML, PL/SQL), and then branches (redirects). Understanding this sequence is critical for controlling when logic executes and avoiding issues like running DML on page load.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Page Load processing runs when a page is first rendered in the browser — it includes before-header processes, computations, regions rendering (SQL queries executing), and after-footer processes.<br><br>On Submit processing runs when a user clicks a submit button — it includes validations (if any fail, processing stops), processes (DML, PL/SQL), and then branches (redirects).<br><br>Understanding this sequence is critical for controlling when logic executes and avoiding issues like running DML on page load.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1094,7 +1213,7 @@ END;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Row Level Security (RLS) in APEX can be implemented using Oracle VPD (Virtual Private Database) policies, APEX authorization schemes on regions with WHERE clause conditions, or by using the current user context in all SQL queries. VPD automatically appends WHERE clauses to queries based on the user context. In APEX, you can set the client identifier using DBMS_SESSION.SET_IDENTIFIER in an application initialization process, making the user context available to VPD policies.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Row Level Security (RLS) in APEX can be implemented using Oracle VPD (Virtual Private Database) policies, APEX authorization schemes on regions with WHERE clause conditions, or by using the current user context in all SQL queries.<br><br>VPD automatically appends WHERE clauses to queries based on the user context.<br><br>In APEX, you can set the client identifier using DBMS_SESSION.SET_IDENTIFIER in an application initialization process, making the user context available to VPD policies.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1140,7 +1259,7 @@ DBMS_RLS.ADD_POLICY(
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX applications can trigger long-running background jobs using DBMS_SCHEDULER or APEX_BACKGROUND_PROCESS. You create a scheduler job from an APEX process, and optionally track progress via an APEX collection or a status table. APEX 21.1+ introduced the APEX_BACKGROUND_PROCESS package which integrates jobs with the APEX session context, allowing you to track job status in the UI and display progress bars.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX applications can trigger long-running background jobs using DBMS_SCHEDULER or APEX_BACKGROUND_PROCESS.<br><br>You create a scheduler job from an APEX process, and optionally track progress via an APEX collection or a status table.<br><br>APEX 21.1+ introduced the APEX_BACKGROUND_PROCESS package which integrates jobs with the APEX session context, allowing you to track job status in the UI and display progress bars.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1184,7 +1303,7 @@ WHERE  job_name = :P1_JOB_NAME;</code></pre></div></div></div><div class="rich-s
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_WEB_SERVICE is the APEX package for calling external REST and SOAP web services. For REST, use APEX_WEB_SERVICE.MAKE_REST_REQUEST which returns the response as a CLOB. You set headers (including Authorization), specify the HTTP method, and parse the JSON/XML response. For OAuth2 APIs, you first get a token, then use it in subsequent calls. ACLs (Access Control Lists) must be granted for the database to make outbound HTTP calls.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_WEB_SERVICE is the APEX package for calling external REST and SOAP web services.<br><br>For REST, use APEX_WEB_SERVICE.MAKE_REST_REQUEST which returns the response as a CLOB.<br><br>You set headers (including Authorization), specify the HTTP method, and parse the JSON/XML response.<br><br>For OAuth2 APIs, you first get a token, then use it in subsequent calls.<br><br>ACLs (Access Control Lists) must be granted for the database to make outbound HTTP calls.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1236,7 +1355,7 @@ END;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_JSON is the APEX package for generating and parsing JSON. APEX_JSON.OPEN_OBJECT/CLOSE_OBJECT/WRITE generates JSON output in PL/SQL Dynamic Content regions or REST handlers. APEX_JSON.PARSE parses a JSON string into an internal structure, and APEX_JSON.GET_VARCHAR2/GET_NUMBER/GET_DATE reads values by JSON path. It's used extensively in AJAX callbacks, REST API responses, and processing JSON data from external APIs.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_JSON is the APEX package for generating and parsing JSON.<br><br>APEX_JSON.OPEN_OBJECT/CLOSE_OBJECT/WRITE generates JSON output in PL/SQL Dynamic Content regions or REST handlers.<br><br>APEX_JSON.PARSE parses a JSON string into an internal structure, and APEX_JSON.GET_VARCHAR2/GET_NUMBER/GET_DATE reads values by JSON path.<br><br>It's used extensively in AJAX callbacks, REST API responses, and processing JSON data from external APIs.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1279,7 +1398,7 @@ END;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX Interactive Reports and Classic Reports have built-in pagination — you set rows per page and pagination type (Row Ranges with Next/Previous, or row-by-row). For custom lazy loading, you can use APEX's scroll-to-load feature in Interactive Grids or implement it with JavaScript and AJAX callbacks that call apex.server.process to fetch the next batch of rows and append to the DOM. Proper indexing and ROWNUM/FETCH FIRST logic in SQL is critical for performance.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX Interactive Reports and Classic Reports have built-in pagination — you set rows per page and pagination type (Row Ranges with Next/Previous, or row-by-row).<br><br>For custom lazy loading, you can use APEX's scroll-to-load feature in Interactive Grids or implement it with JavaScript and AJAX callbacks that call apex.server.process to fetch the next batch of rows and append to the DOM.<br><br>Proper indexing and ROWNUM/FETCH FIRST logic in SQL is critical for performance.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1326,7 +1445,7 @@ apex.server.process('LOAD_MORE_ROWS', {
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The APEX_IR package provides PL/SQL APIs to programmatically manage Interactive Report saved reports, filters, highlights, and settings. Key procedures include APEX_IR.RESET_REPORT (clear all user customisations), ADD_FILTER (add a WHERE filter), DELETE_FILTER, GET_REPORT (get current report metadata), and CHANGE_REPORT_OWNER. This is useful for applying default filters on page load, resetting reports via buttons, and building report management features.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The APEX_IR package provides PL/SQL APIs to programmatically manage Interactive Report saved reports, filters, highlights, and settings.<br><br>Key procedures include APEX_IR.RESET_REPORT (clear all user customisations), ADD_FILTER (add a WHERE filter), DELETE_FILTER, GET_REPORT (get current report metadata), and CHANGE_REPORT_OWNER.<br><br>This is useful for applying default filters on page load, resetting reports via buttons, and building report management features.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1366,7 +1485,7 @@ WHERE  application_id = :APP_ID
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX has built-in XSS protection: all item values are HTML-escaped by default when displayed. For CSRF, APEX generates and validates a hidden session token on every page submission — if the token doesn't match, the request is rejected. Best practices include: never using APEX_UTIL.RAW_ESCAPE to bypass escaping, always using bind variables in SQL (not concatenation), enabling checksum validation on URL parameters, using HTTPS, setting secure cookie attributes, and restricting public page access properly.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX has built-in XSS protection: all item values are HTML-escaped by default when displayed.<br><br>For CSRF, APEX generates and validates a hidden session token on every page submission — if the token doesn't match, the request is rejected.<br><br>Best practices include: never using APEX_UTIL.RAW_ESCAPE to bypass escaping, always using bind variables in SQL (not concatenation), enabling checksum validation on URL parameters, using HTTPS, setting secure cookie attributes, and restricting public page access properly.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1408,7 +1527,7 @@ END;
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle APEX 22.1+ introduced Approvals (Task Manager) built-in functionality that allows developers to create human approval workflows without custom code. You define task definitions with assignees, deadlines, actions, and parameters. Tasks can be initiated from APEX pages, monitored in a unified My Tasks interface, and integrated with email notifications. The APEX_APPROVAL package provides PL/SQL APIs to create, complete, and query tasks programmatically.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle APEX 22.1+ introduced Approvals (Task Manager) built-in functionality that allows developers to create human approval workflows without custom code.<br><br>You define task definitions with assignees, deadlines, actions, and parameters.<br><br>Tasks can be initiated from APEX pages, monitored in a unified My Tasks interface, and integrated with email notifications.<br><br>The APEX_APPROVAL package provides PL/SQL APIs to create, complete, and query tasks programmatically.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1453,7 +1572,7 @@ WHERE  application_id = :APP_ID
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle APEX 21.1+ supports Progressive Web App (PWA) features including Push Notifications. You enable PWA mode in Application Definition, configure the push credentials (VAPID keys), and use APEX_PWA.PUSH_NOTIFICATION to send notifications from PL/SQL. On the client side, a service worker handles the push events. This enables APEX applications to send real-time alerts to users even when the browser tab is not active.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle APEX 21.1+ supports Progressive Web App (PWA) features including Push Notifications.<br><br>You enable PWA mode in Application Definition, configure the push credentials (VAPID keys), and use APEX_PWA.PUSH_NOTIFICATION to send notifications from PL/SQL.<br><br>On the client side, a service worker handles the push events.<br><br>This enables APEX applications to send real-time alerts to users even when the browser tab is not active.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1497,7 +1616,7 @@ END;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-
     </div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_DEBUG is the package for writing debug messages in APEX applications. You can write messages at different log levels (INFO, WARN, ERROR) using APEX_DEBUG.MESSAGE, APEX_DEBUG.WARN, APEX_DEBUG.ERROR. Debug mode can be enabled from the URL (&amp;p_debug=YES), from the Developer Toolbar, or programmatically. Debug messages are stored in APEX_DEBUG_MESSAGES and visible in the Debug view in APEX Builder. This is essential for troubleshooting complex applications in production without affecting all users.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_DEBUG is the package for writing debug messages in APEX applications.<br><br>You can write messages at different log levels (INFO, WARN, ERROR) using APEX_DEBUG.MESSAGE, APEX_DEBUG.WARN, APEX_DEBUG.ERROR.<br><br>Debug mode can be enabled from the URL (&amp;p_debug=YES), from the Developer Toolbar, or programmatically.<br><br>Debug messages are stored in APEX_DEBUG_MESSAGES and visible in the Debug view in APEX Builder.<br><br>This is essential for troubleshooting complex applications in production without affecting all users.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)">
       <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
     </button>
@@ -1547,7 +1666,7 @@ ORDER  BY message_timestamp;</code></pre></div></div></div><div class="rich-sect
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">REST stands for Representational State Transfer. It is an architectural style for designing networked applications using HTTP. REST treats every resource as a URL-addressable object and is stateless &mdash; each request contains all information needed. REST uses standard HTTP methods: GET (read), POST (create), PUT (update), DELETE (delete), PATCH (partial update). A web service following REST principles is called a RESTful web service.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">REST stands for Representational State Transfer.<br><br>It is an architectural style for designing networked applications using HTTP.<br><br>REST treats every resource as a URL-addressable object and is stateless &mdash; each request contains all information needed.<br><br>REST uses standard HTTP methods: GET (read), POST (create), PUT (update), DELETE (delete), PATCH (partial update).<br><br>A web service following REST principles is called a RESTful web service.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon tbl"><i class="fas fa-table"></i></div><span class="rich-lbl">REST Constraints</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="rich-tbl-wrap"><table class="rich-tbl"><thead><tr><th>Constraint</th><th>Meaning</th></tr></thead><tbody><tr><td>Stateless</td><td>Each request is independent &mdash; no server session</td></tr><tr><td>Client-Server</td><td>UI and data are separated</td></tr><tr><td>Cacheable</td><td>Responses can be cached</td></tr><tr><td>Uniform Interface</td><td>Standard HTTP methods and URLs</td></tr></tbody></table></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>REST = Representational State Transfer. Stateless architectural style using HTTP methods (GET, POST, PUT, DELETE) to interact with resources identified by URLs.</p></div></div></div>
   </div>
@@ -1559,7 +1678,7 @@ ORDER  BY message_timestamp;</code></pre></div></div></div><div class="rich-sect
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">GET retrieves data &mdash; safe and idempotent, no body needed. POST creates a new resource &mdash; sends data in body, not idempotent (each call creates new record). PUT updates an existing resource completely &mdash; replaces entire resource, idempotent. PATCH partially updates &mdash; only changed fields. DELETE removes a resource &mdash; idempotent. HEAD returns only headers. OPTIONS returns supported methods &mdash; used in CORS preflight.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">GET retrieves data &mdash; safe and idempotent, no body needed.<br><br>POST creates a new resource &mdash; sends data in body, not idempotent (each call creates new record).<br><br>PUT updates an existing resource completely &mdash; replaces entire resource, idempotent.<br><br>PATCH partially updates &mdash; only changed fields.<br><br>DELETE removes a resource &mdash; idempotent.<br><br>HEAD returns only headers.<br><br>OPTIONS returns supported methods &mdash; used in CORS preflight.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon tbl"><i class="fas fa-table"></i></div><span class="rich-lbl">HTTP Methods Summary</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="rich-tbl-wrap"><table class="rich-tbl"><thead><tr><th>Method</th><th>CRUD</th><th>Body</th><th>Idempotent</th><th>Safe</th></tr></thead><tbody><tr><td>GET</td><td>Read</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>POST</td><td>Create</td><td>Yes</td><td>No</td><td>No</td></tr><tr><td>PUT</td><td>Update (full)</td><td>Yes</td><td>Yes</td><td>No</td></tr><tr><td>PATCH</td><td>Update (partial)</td><td>Yes</td><td>No</td><td>No</td></tr><tr><td>DELETE</td><td>Delete</td><td>No</td><td>Yes</td><td>No</td></tr></tbody></table></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>GET=Read, POST=Create, PUT=Full Update, PATCH=Partial, DELETE=Remove. Idempotent = same result if called multiple times.</p></div></div></div>
   </div>
@@ -1583,7 +1702,7 @@ ORDER  BY message_timestamp;</code></pre></div></div></div><div class="rich-sect
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">ORDS (Oracle REST Data Services) is Java-based middleware that converts Oracle Database tables and PL/SQL into REST API endpoints exposing data as JSON over HTTP. In Oracle APEX, ORDS is the engine powering REST Enabled SQL, RESTful Services, and APEX itself. Create a REST API in ORDS by defining a Module (base path), Resource Template (URL pattern), and Handler (SQL/PL/SQL that runs).</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">ORDS (Oracle REST Data Services) is Java-based middleware that converts Oracle Database tables and PL/SQL into REST API endpoints exposing data as JSON over HTTP.<br><br>In Oracle APEX, ORDS is the engine powering REST Enabled SQL, RESTful Services, and APEX itself.<br><br>Create a REST API in ORDS by defining a Module (base path), Resource Template (URL pattern), and Handler (SQL/PL/SQL that runs).</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">ORDS URL Format</span><span class="rich-sub">URL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">URL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">-- Format: https://server/ords/schema/module/template
 GET  /customers/employees/      -- get all
@@ -1600,7 +1719,7 @@ DELETE /customers/employees/1   -- delete</code></pre></div></div></div><div cla
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">JSON (JavaScript Object Notation) is a lightweight data-interchange format using key-value pairs. REST APIs use JSON because it is much smaller than XML (less bandwidth), natively supported in JavaScript, universally supported in all programming languages, and maps naturally to objects/arrays. ORDS automatically returns JSON from Collection Query handlers with items array, hasMore, count, and links.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">JSON (JavaScript Object Notation) is a lightweight data-interchange format using key-value pairs.<br><br>REST APIs use JSON because it is much smaller than XML (less bandwidth), natively supported in JavaScript, universally supported in all programming languages, and maps naturally to objects/arrays.<br><br>ORDS automatically returns JSON from Collection Query handlers with items array, hasMore, count, and links.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">JSON Example</span><span class="rich-sub">JSON</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JSON</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">-- Single object: { "id":1, "name":"Tharun", "dept":"IT", "salary":5000 }
 -- ORDS array response:
@@ -1614,7 +1733,7 @@ DELETE /customers/employees/1   -- delete</code></pre></div></div></div><div cla
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Stateless means the server stores NO client session information between requests. Every request must contain ALL information needed &mdash; authentication, parameters, context. The server treats each request as new and independent. State lives in the CLIENT (browser, app), not the server. Benefits: scalability (any server handles any request), cacheability, simplicity.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Stateless means the server stores NO client session information between requests.<br><br>Every request must contain ALL information needed &mdash; authentication, parameters, context.<br><br>The server treats each request as new and independent.<br><br>State lives in the CLIENT (browser, app), not the server.<br><br>Benefits: scalability (any server handles any request), cacheability, simplicity.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Stateless = server stores NO session. Each request is self-contained with all needed info. Benefits: scalability, cacheability, simplicity.</p></div></div></div>
   </div>
@@ -1626,7 +1745,7 @@ DELETE /customers/employees/1   -- delete</code></pre></div></div></div><div cla
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">REST is an architectural style using HTTP and JSON &mdash; lightweight, stateless, suitable for web/mobile. SOAP (Simple Object Access Protocol) is a strict protocol using XML envelopes, requires WSDL contract, always uses POST, heavier but enterprise-grade. REST is the modern standard. SOAP is common in banking, insurance, and legacy systems needing strict contracts and WS-Security.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">REST is an architectural style using HTTP and JSON &mdash; lightweight, stateless, suitable for web/mobile.<br><br>SOAP (Simple Object Access Protocol) is a strict protocol using XML envelopes, requires WSDL contract, always uses POST, heavier but enterprise-grade.<br><br>REST is the modern standard.<br><br>SOAP is common in banking, insurance, and legacy systems needing strict contracts and WS-Security.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon tbl"><i class="fas fa-table"></i></div><span class="rich-lbl">REST vs SOAP</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="rich-tbl-wrap"><table class="rich-tbl"><thead><tr><th>Feature</th><th>REST</th><th>SOAP</th></tr></thead><tbody><tr><td>Format</td><td>JSON / XML</td><td>XML only</td></tr><tr><td>HTTP Method</td><td>GET, POST, PUT, DELETE</td><td>Always POST</td></tr><tr><td>Contract</td><td>Not required</td><td>WSDL required</td></tr><tr><td>Speed</td><td>Faster / Lightweight</td><td>Slower / Heavier</td></tr><tr><td>Used in</td><td>Modern Web/Mobile</td><td>Enterprise / Legacy</td></tr></tbody></table></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>REST = lightweight JSON over HTTP. SOAP = strict XML protocol with WSDL. REST is modern standard; SOAP is enterprise legacy.</p></div></div></div>
   </div>
@@ -1638,7 +1757,7 @@ DELETE /customers/employees/1   -- delete</code></pre></div></div></div><div cla
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Use APEX_WEB_SERVICE.MAKE_REST_REQUEST with p_url (endpoint), p_http_method (GET/POST/PUT/DELETE), p_body (JSON body for POST/PUT), and p_http_headers. Returns CLOB response. Parse JSON using APEX_JSON or JSON_TABLE. For no-code approach use Web Source Modules in APEX &mdash; define the REST source declaratively and use directly in report regions.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Use APEX_WEB_SERVICE.MAKE_REST_REQUEST with p_url (endpoint), p_http_method (GET/POST/PUT/DELETE), p_body (JSON body for POST/PUT), and p_http_headers.<br><br>Returns CLOB response.<br><br>Parse JSON using APEX_JSON or JSON_TABLE.<br><br>For no-code approach use Web Source Modules in APEX &mdash; define the REST source declaratively and use directly in report regions.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">APEX_WEB_SERVICE Example</span><span class="rich-sub">PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">PL/SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">-- GET:
 l_response := APEX_WEB_SERVICE.MAKE_REST_REQUEST(
@@ -1664,7 +1783,7 @@ l_response := APEX_WEB_SERVICE.MAKE_REST_REQUEST(
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Idempotency means calling the same endpoint multiple times gives the same result as once. GET: always returns same data &mdash; idempotent. PUT: updating same record ten times gives same final state &mdash; idempotent. DELETE: deleting already-deleted gives same end state (record gone) &mdash; idempotent. POST: each call creates a new record &mdash; NOT idempotent. PATCH: generally not idempotent.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Idempotency means calling the same endpoint multiple times gives the same result as once.<br><br>GET: always returns same data &mdash; idempotent.<br><br>PUT: updating same record ten times gives same final state &mdash; idempotent.<br><br>DELETE: deleting already-deleted gives same end state (record gone) &mdash; idempotent.<br><br>POST: each call creates a new record &mdash; NOT idempotent.<br><br>PATCH: generally not idempotent.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Idempotent = multiple calls give same result. GET, PUT, DELETE are idempotent. POST is NOT &mdash; each call creates a new resource.</p></div></div></div>
   </div>
@@ -1676,7 +1795,7 @@ l_response := APEX_WEB_SERVICE.MAKE_REST_REQUEST(
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Step 1: Create database table. Step 2: SQL Workshop &rarr; RESTful Services &rarr; Modules &rarr; Create Module (Name, Base Path /customers/, Status=Published). Step 3: Create Templates: employees/ (all records) and employees/:id (single with ID). Step 4: Create Handlers &mdash; GET Collection Query (SELECT *), POST PL/SQL (INSERT), GET One Row, PUT (UPDATE WHERE id=:id), DELETE (DELETE WHERE id=:id). Step 5: Test GET in browser, POST/PUT/DELETE in Postman.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Step 1: Create database table.<br><br>Step 2: SQL Workshop &rarr; RESTful Services &rarr; Modules &rarr; Create Module (Name, Base Path /customers/, Status=Published).<br><br>Step 3: Create Templates: employees/ (all records) and employees/:id (single with ID).<br><br>Step 4: Create Handlers &mdash; GET Collection Query (SELECT *), POST PL/SQL (INSERT), GET One Row, PUT (UPDATE WHERE id=:id), DELETE (DELETE WHERE id=:id).<br><br>Step 5: Test GET in browser, POST/PUT/DELETE in Postman.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">ORDS Handler SQL</span><span class="rich-sub">SQL/PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">-- GET all: SELECT id,name,dept,city,salary FROM employees ORDER BY id;
 -- POST: INSERT INTO employees(name,dept,city,salary) VALUES(:name,:dept,:city,:salary); COMMIT;
@@ -1691,7 +1810,7 @@ l_response := APEX_WEB_SERVICE.MAKE_REST_REQUEST(
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">PUT replaces the ENTIRE resource &mdash; must send ALL fields. Omitting a field sets it to null. PATCH partially updates &mdash; send only changed fields, others stay unchanged. Example: changing only salary with PUT requires sending name, dept, city, salary. With PATCH only salary is sent. In ORDS practice, PUT is more commonly implemented as it is simpler to code.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">PUT replaces the ENTIRE resource &mdash; must send ALL fields.<br><br>Omitting a field sets it to null.<br><br>PATCH partially updates &mdash; send only changed fields, others stay unchanged.<br><br>Example: changing only salary with PUT requires sending name, dept, city, salary.<br><br>With PATCH only salary is sent.<br><br>In ORDS practice, PUT is more commonly implemented as it is simpler to code.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">PUT vs PATCH</span><span class="rich-sub">JSON</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JSON</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">-- PUT: send ALL fields (omitting city makes city NULL!)
 { "name":"Tharun K", "dept":"IT", "city":"Chemnitz", "salary":6000 }
@@ -1707,7 +1826,7 @@ l_response := APEX_WEB_SERVICE.MAKE_REST_REQUEST(
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_JSON: call APEX_JSON.PARSE(clob) then GET_VARCHAR2, GET_NUMBER, GET_DATE by path. Use for simple key extraction in PL/SQL. JSON_TABLE is a SQL function converting JSON arrays into relational rows &mdash; better for report regions. APEX_COLLECTION can store results for use in Classic Report source. APEX_JSON path uses dot notation: 'main.temp' for nested, 'weather[1].description' for arrays.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_JSON: call APEX_JSON.PARSE(clob) then GET_VARCHAR2, GET_NUMBER, GET_DATE by path.<br><br>Use for simple key extraction in PL/SQL.<br><br>JSON_TABLE is a SQL function converting JSON arrays into relational rows &mdash; better for report regions.<br><br>APEX_COLLECTION can store results for use in Classic Report source.<br><br>APEX_JSON path uses dot notation: 'main.temp' for nested, 'weather[1].description' for arrays.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">APEX_JSON and JSON_TABLE</span><span class="rich-sub">PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">PL/SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">-- APEX_JSON:
 APEX_JSON.PARSE(l_response);
@@ -1727,7 +1846,7 @@ FROM   JSON_TABLE(l_clob, '$[*]'
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Basic Authentication sends username:password Base64-encoded in Authorization header &mdash; simple but only safe over HTTPS. Bearer Token (OAuth 2.0) &mdash; client first gets a token from auth server, then sends Authorization: Bearer TOKEN in all API calls. API Key is simpler &mdash; static key as header or query param. In ORDS, protect endpoints using ORDS OAuth 2.0 client credentials flow.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Basic Authentication sends username:password Base64-encoded in Authorization header &mdash; simple but only safe over HTTPS.<br><br>Bearer Token (OAuth 2.0) &mdash; client first gets a token from auth server, then sends Authorization: Bearer TOKEN in all API calls.<br><br>API Key is simpler &mdash; static key as header or query param.<br><br>In ORDS, protect endpoints using ORDS OAuth 2.0 client credentials flow.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Auth in APEX PL/SQL</span><span class="rich-sub">PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">PL/SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">-- Set Bearer Token header:
 APEX_WEB_SERVICE.SET_REQUEST_HEADERS(
@@ -1745,7 +1864,7 @@ APEX_WEB_SERVICE.SET_REQUEST_HEADERS(
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">CORS (Cross-Origin Resource Sharing) is a browser security mechanism blocking web pages from requesting a different domain. If APEX on apex.oracle.com calls an API on api.external.com, the browser blocks it unless the API returns Access-Control-Allow-Origin header. Key: CORS only affects browser JavaScript calls &mdash; APEX server-side PL/SQL calls (APEX_WEB_SERVICE) are NOT restricted by CORS.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">CORS (Cross-Origin Resource Sharing) is a browser security mechanism blocking web pages from requesting a different domain.<br><br>If APEX on apex.oracle.com calls an API on api.external.com, the browser blocks it unless the API returns Access-Control-Allow-Origin header.<br><br>Key: CORS only affects browser JavaScript calls &mdash; APEX server-side PL/SQL calls (APEX_WEB_SERVICE) are NOT restricted by CORS.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>CORS = browser security blocking cross-domain calls. APEX PL/SQL server-side calls are NOT affected by CORS. Only JavaScript fetch/XHR in browser is restricted.</p></div></div></div>
   </div>
@@ -1757,7 +1876,7 @@ APEX_WEB_SERVICE.SET_REQUEST_HEADERS(
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Headers are key-value pairs providing metadata. Content-Type tells format of body sent (application/json for REST, text/xml for SOAP). Accept tells expected response format. Authorization carries credentials (Basic, Bearer token). Cache-Control controls caching. In ORDS/APEX: Content-Type: application/json is required for POST/PUT requests, Authorization for secured endpoints.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Headers are key-value pairs providing metadata.<br><br>Content-Type tells format of body sent (application/json for REST, text/xml for SOAP).<br><br>Accept tells expected response format.<br><br>Authorization carries credentials (Basic, Bearer token).<br><br>Cache-Control controls caching.<br><br>In ORDS/APEX: Content-Type: application/json is required for POST/PUT requests, Authorization for secured endpoints.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon tbl"><i class="fas fa-table"></i></div><span class="rich-lbl">Common Headers</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="rich-tbl-wrap"><table class="rich-tbl"><thead><tr><th>Header</th><th>Used In</th><th>Example Value</th></tr></thead><tbody><tr><td>Content-Type</td><td>POST/PUT requests</td><td>application/json</td></tr><tr><td>Accept</td><td>All requests</td><td>application/json</td></tr><tr><td>Authorization</td><td>Secured endpoints</td><td>Bearer eyJhbGci...</td></tr></tbody></table></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Content-Type (body format), Authorization (auth token), Accept (expected response). Content-Type: application/json required for POST/PUT in ORDS.</p></div></div></div>
   </div>
@@ -1769,7 +1888,7 @@ APEX_WEB_SERVICE.SET_REQUEST_HEADERS(
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Versioning lets you make breaking changes without breaking existing clients. Most common: URL versioning (/api/v1/employees, /api/v2/employees). Also: header versioning (Accept: version=2 in header) and query parameter (?version=2). In ORDS create separate modules with different base paths: customers.api.v1 at /v1/customers/ and customers.api.v2 at /v2/customers/.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Versioning lets you make breaking changes without breaking existing clients.<br><br>Most common: URL versioning (/api/v1/employees, /api/v2/employees).<br><br>Also: header versioning (Accept: version=2 in header) and query parameter (?version=2).<br><br>In ORDS create separate modules with different base paths: customers.api.v1 at /v1/customers/ and customers.api.v2 at /v2/customers/.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Versioning prevents breaking existing clients. URL versioning (/v1/, /v2/) is most common. In ORDS create separate modules per version.</p></div></div></div>
   </div>
@@ -1781,7 +1900,7 @@ APEX_WEB_SERVICE.SET_REQUEST_HEADERS(
     <div class="question-details"><span class="difficulty-badge" style="background:#fce7f3;color:#831843;border:1px solid #f9a8d4">advanced</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Pagination limits records per call, preventing performance issues. ORDS automatically adds pagination to Collection Query handlers. Response includes hasMore, limit, offset, count, and links with rel=next. Default is 25 records. Control with ?limit=10&amp;offset=0. Set default in Module definition. For custom pagination use OFFSET FETCH NEXT in SQL handler.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Pagination limits records per call, preventing performance issues.<br><br>ORDS automatically adds pagination to Collection Query handlers.<br><br>Response includes hasMore, limit, offset, count, and links with rel=next.<br><br>Default is 25 records.<br><br>Control with ?limit=10&amp;offset=0.<br><br>Set default in Module definition.<br><br>For custom pagination use OFFSET FETCH NEXT in SQL handler.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">ORDS Pagination Response</span><span class="rich-sub">JSON</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JSON</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">{ "items":[...], "hasMore":true, "limit":25, "offset":0, "count":25,
   "links":[{"rel":"next","href":".../employees/?offset=25"}] }</code></pre></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>ORDS auto-paginates. Response has hasMore, limit, offset, count, links.next. Control with ?limit=N&amp;offset=N. Default set in Module.</p></div></div></div>
@@ -1794,7 +1913,7 @@ APEX_WEB_SERVICE.SET_REQUEST_HEADERS(
     <div class="question-details"><span class="difficulty-badge" style="background:#fce7f3;color:#831843;border:1px solid #f9a8d4">advanced</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Return meaningful HTTP status codes with structured JSON bodies. Never 200 OK for errors. Use 400 bad input, 401 auth failure, 403 no permission, 404 not found, 422 validation, 500 server error. JSON body should include: status code, error type, human-readable message, timestamp. In ORDS use RAISE_APPLICATION_ERROR in PL/SQL handlers to trigger error responses.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Return meaningful HTTP status codes with structured JSON bodies.<br><br>Never 200 OK for errors.<br><br>Use 400 bad input, 401 auth failure, 403 no permission, 404 not found, 422 validation, 500 server error.<br><br>JSON body should include: status code, error type, human-readable message, timestamp.<br><br>In ORDS use RAISE_APPLICATION_ERROR in PL/SQL handlers to trigger error responses.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Error Handling in ORDS</span><span class="rich-sub">PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">PL/SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">-- Good error JSON: { "status":404, "error":"Not Found", "message":"Employee 999 not found" }
 
@@ -1814,7 +1933,7 @@ END;</code></pre></div></div></div><div class="rich-takeaway"><div class="rich-t
     <div class="question-details"><span class="difficulty-badge" style="background:#fce7f3;color:#831843;border:1px solid #f9a8d4">advanced</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_WEB_SERVICE is a PL/SQL API &mdash; write code to call REST endpoint, parse JSON manually. Full control, all HTTP methods, needed for write operations. Web Source Modules are declarative &mdash; define REST source in APEX UI, APEX auto-generates calls. Mainly GET only, use directly in report regions with no code. Choose Web Source for display, APEX_WEB_SERVICE for complex/write operations.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_WEB_SERVICE is a PL/SQL API &mdash; write code to call REST endpoint, parse JSON manually.<br><br>Full control, all HTTP methods, needed for write operations.<br><br>Web Source Modules are declarative &mdash; define REST source in APEX UI, APEX auto-generates calls.<br><br>Mainly GET only, use directly in report regions with no code.<br><br>Choose Web Source for display, APEX_WEB_SERVICE for complex/write operations.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon tbl"><i class="fas fa-table"></i></div><span class="rich-lbl">Comparison</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="rich-tbl-wrap"><table class="rich-tbl"><thead><tr><th>Feature</th><th>APEX_WEB_SERVICE</th><th>Web Source Module</th></tr></thead><tbody><tr><td>Approach</td><td>PL/SQL code</td><td>Declarative UI</td></tr><tr><td>Methods</td><td>GET, POST, PUT, DELETE</td><td>Mainly GET</td></tr><tr><td>JSON Parsing</td><td>Manual (APEX_JSON)</td><td>Automatic</td></tr><tr><td>Best For</td><td>Complex / write ops</td><td>Simple display</td></tr></tbody></table></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Web Source = declarative, easy, GET-focused. APEX_WEB_SERVICE = programmatic, full control, all methods. Use Web Source for display, APEX_WEB_SERVICE for complex logic.</p></div></div></div>
   </div>
@@ -1826,7 +1945,7 @@ END;</code></pre></div></div></div><div class="rich-takeaway"><div class="rich-t
     <div class="question-details"><span class="difficulty-badge" style="background:#fce7f3;color:#831843;border:1px solid #f9a8d4">advanced</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">ORDS OAuth 2.0 Client Credentials: create privilege in ORDS, create OAuth client with privilege. Client gets client_id and client_secret. First POST to /ords/schema/oauth/token to get Bearer token, then include in all API calls. ORDS Privilege: assign privilege role to module/template. Always use HTTPS. On ADB additional ACL controls apply at database level.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">ORDS OAuth 2.0 Client Credentials: create privilege in ORDS, create OAuth client with privilege.<br><br>Client gets client_id and client_secret.<br><br>First POST to /ords/schema/oauth/token to get Bearer token, then include in all API calls.<br><br>ORDS Privilege: assign privilege role to module/template.<br><br>Always use HTTPS.<br><br>On ADB additional ACL controls apply at database level.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">OAuth Token Flow</span><span class="rich-sub">HTTP</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTTP</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">-- Get token:
 POST /ords/schema/oauth/token
@@ -1852,7 +1971,7 @@ Authorization: Bearer eyJhbGci...</code></pre></div></div></div><div class="rich
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">SOAP stands for Simple Object Access Protocol. It is a messaging protocol for exchanging structured information in web services using XML over HTTP. Unlike REST (architectural style), SOAP is a strict protocol with defined rules. Every SOAP message must follow XML envelope structure with Header and Body sections. SOAP is platform-independent &mdash; any system that can process XML can use it.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">SOAP stands for Simple Object Access Protocol.<br><br>It is a messaging protocol for exchanging structured information in web services using XML over HTTP.<br><br>Unlike REST (architectural style), SOAP is a strict protocol with defined rules.<br><br>Every SOAP message must follow XML envelope structure with Header and Body sections.<br><br>SOAP is platform-independent &mdash; any system that can process XML can use it.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">SOAP Envelope Structure</span><span class="rich-sub">XML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">XML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
   &lt;soap:Header&gt;&lt;!-- Optional: auth, transaction --&gt;&lt;/soap:Header&gt;
@@ -1871,7 +1990,7 @@ Authorization: Bearer eyJhbGci...</code></pre></div></div></div><div class="rich
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">WSDL = Web Services Description Language. An XML document describing a SOAP service &mdash; operations available, input/output types, SOAPAction values, and endpoint URL. It is the contract. Access by adding ?WSDL to service URL. Key sections: types (data types), portType (operation names), binding (SOAPAction values, protocol), service (endpoint URL to call).</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">WSDL = Web Services Description Language.<br><br>An XML document describing a SOAP service &mdash; operations available, input/output types, SOAPAction values, and endpoint URL.<br><br>It is the contract.<br><br>Access by adding ?WSDL to service URL.<br><br>Key sections: types (data types), portType (operation names), binding (SOAPAction values, protocol), service (endpoint URL to call).</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon tbl"><i class="fas fa-table"></i></div><span class="rich-lbl">WSDL Sections</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="rich-tbl-wrap"><table class="rich-tbl"><thead><tr><th>Section</th><th>Contains</th></tr></thead><tbody><tr><td>types</td><td>XSD schema &mdash; field names and data types</td></tr><tr><td>portType</td><td>Available operation names</td></tr><tr><td>binding</td><td>SOAPAction values, HTTP transport</td></tr><tr><td>service</td><td>Endpoint URL to call</td></tr></tbody></table></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>WSDL = SOAP contract. Contains operations, types, SOAPAction, endpoint. Access by appending ?WSDL to URL.</p></div></div></div>
   </div>
@@ -1883,7 +2002,7 @@ Authorization: Bearer eyJhbGci...</code></pre></div></div></div><div class="rich
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">SOAPAction is an HTTP header telling the server which operation to execute. Since all SOAP requests POST to the same URL, SOAPAction differentiates operations (e.g. http://tempuri.org/Add vs http://tempuri.org/Subtract). Get the value from the WSDL binding section. Some services use empty SOAPAction ("") &mdash; operation identified by XML body element name instead. In APEX: pass as p_action parameter in MAKE_REQUEST.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">SOAPAction is an HTTP header telling the server which operation to execute.<br><br>Since all SOAP requests POST to the same URL, SOAPAction differentiates operations (e.g. http://tempuri.org/Add vs http://tempuri.org/Subtract).<br><br>Get the value from the WSDL binding section.<br><br>Some services use empty SOAPAction ("") &mdash; operation identified by XML body element name instead.<br><br>In APEX: pass as p_action parameter in MAKE_REQUEST.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>SOAPAction identifies which operation to run. All SOAP requests POST to same URL &mdash; SOAPAction differentiates them. Get value from WSDL binding. Pass as p_action in MAKE_REQUEST.</p></div></div></div>
   </div>
@@ -1895,7 +2014,7 @@ Authorization: Bearer eyJhbGci...</code></pre></div></div></div><div class="rich
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Use APEX_WEB_SERVICE.MAKE_REQUEST with: p_url (endpoint from WSDL), p_action (SOAPAction from WSDL binding), p_envelope (complete XML SOAP envelope string). Returns XMLTYPE. Extract values using XMLTYPE.EXTRACT with XPath and namespace declarations. On Oracle ADB service must be HTTPS &mdash; HTTP gives ORA-20987.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Use APEX_WEB_SERVICE.MAKE_REQUEST with: p_url (endpoint from WSDL), p_action (SOAPAction from WSDL binding), p_envelope (complete XML SOAP envelope string).<br><br>Returns XMLTYPE.<br><br>Extract values using XMLTYPE.EXTRACT with XPath and namespace declarations.<br><br>On Oracle ADB service must be HTTPS &mdash; HTTP gives ORA-20987.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Complete SOAP Call</span><span class="rich-sub">PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">PL/SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">DECLARE
   l_envelope VARCHAR2(4000); l_response XMLTYPE; l_result VARCHAR2(500);
@@ -1921,7 +2040,7 @@ END;</code></pre></div></div></div><div class="rich-takeaway"><div class="rich-t
     <div class="question-details"><span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">XML namespaces prevent element name conflicts. xmlns:soap declares soap prefix for envelope, service namespace scopes operation elements. Without namespaces parser cannot distinguish SOAP structure elements from business elements. In APEX parsing with XMLTYPE.EXTRACT or XMLTABLE &mdash; must declare ALL namespaces in XPath including soap envelope namespace. Missing namespace causes ORA-19228 error.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">XML namespaces prevent element name conflicts. xmlns:soap declares soap prefix for envelope, service namespace scopes operation elements.<br><br>Without namespaces parser cannot distinguish SOAP structure elements from business elements.<br><br>In APEX parsing with XMLTYPE.EXTRACT or XMLTABLE &mdash; must declare ALL namespaces in XPath including soap envelope namespace.<br><br>Missing namespace causes ORA-19228 error.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Namespaces prevent XML name conflicts. Declare ALL namespaces in XPath including soap envelope namespace. Missing namespace = ORA-19228 error.</p></div></div></div>
   </div>
@@ -1933,7 +2052,7 @@ END;</code></pre></div></div></div><div class="rich-takeaway"><div class="rich-t
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">SOAP 1.1: namespace http://schemas.xmlsoap.org/soap/envelope/, Content-Type text/xml, SOAPAction is a separate HTTP header, fault codes Client/Server. SOAP 1.2: namespace http://www.w3.org/2003/05/soap-envelope, Content-Type application/soap+xml, SOAPAction inside Content-Type header, fault codes Sender/Receiver. Check WSDL for soap:binding (1.1) vs soap12:binding (1.2). Most services support both.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">SOAP 1.1: namespace http://schemas.xmlsoap.org/soap/envelope/, Content-Type text/xml, SOAPAction is a separate HTTP header, fault codes Client/Server.<br><br>SOAP 1.2: namespace http://www.w3.org/2003/05/soap-envelope, Content-Type application/soap+xml, SOAPAction inside Content-Type header, fault codes Sender/Receiver.<br><br>Check WSDL for soap:binding (1.1) vs soap12:binding (1.2).<br><br>Most services support both.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>1.1 = text/xml + separate SOAPAction header. 1.2 = application/soap+xml + SOAPAction inside Content-Type. Check WSDL binding section.</p></div></div></div>
   </div>
@@ -1945,7 +2064,7 @@ END;</code></pre></div></div></div><div class="rich-takeaway"><div class="rich-t
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Single values: XMLTYPE.EXTRACT(xpath, namespace_string).GETSTRINGVAL() or GETNUMBERVAL(). Multiple rows: XMLTABLE SQL function with XMLNAMESPACES (declare all namespaces), row XPath (points to repeating element), COLUMNS (child elements become columns). Large responses (200+ rows): store XMLTYPE in variable, load into APEX_COLLECTION &mdash; do NOT embed in dynamic SQL (causes ORA-06502).</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Single values: XMLTYPE.EXTRACT(xpath, namespace_string).GETSTRINGVAL() or GETNUMBERVAL().<br><br>Multiple rows: XMLTABLE SQL function with XMLNAMESPACES (declare all namespaces), row XPath (points to repeating element), COLUMNS (child elements become columns).<br><br>Large responses (200+ rows): store XMLTYPE in variable, load into APEX_COLLECTION &mdash; do NOT embed in dynamic SQL (causes ORA-06502).</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">XMLTABLE Example</span><span class="rich-sub">PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">PL/SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">FOR r IN (SELECT x.iso_code, x.country_name
   FROM XMLTABLE(XMLNAMESPACES(
@@ -1966,7 +2085,7 @@ END LOOP;</code></pre></div></div></div><div class="rich-takeaway"><div class="r
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">SOAP Fault is the error response inside soap:Body when service cannot process the request. Contains: faultcode (Client=bad input, Server=server error), faultstring (human-readable description), faultactor (optional &mdash; which service), detail (optional &mdash; technical details). SOAP Fault always returns HTTP 500 regardless of whether it is client or server error &mdash; unlike REST which uses 4xx for client errors. Always check for Fault before extracting normal response data.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">SOAP Fault is the error response inside soap:Body when service cannot process the request.<br><br>Contains: faultcode (Client=bad input, Server=server error), faultstring (human-readable description), faultactor (optional &mdash; which service), detail (optional &mdash; technical details).<br><br>SOAP Fault always returns HTTP 500 regardless of whether it is client or server error &mdash; unlike REST which uses 4xx for client errors.<br><br>Always check for Fault before extracting normal response data.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Fault Check in PL/SQL</span><span class="rich-sub">PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">PL/SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">l_fault := l_response.EXTRACT('//soap:Fault/faultstring/text()',
   'xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"').GETSTRINGVAL();
@@ -1982,7 +2101,7 @@ END IF;</code></pre></div></div></div><div class="rich-takeaway"><div class="ric
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Wrap all SOAP calls in a dedicated PL/SQL package (e.g. PCK_SOAP_API). Centralizes URL, endpoint, envelope logic. Functions return data (VARCHAR2/CLOB). Procedures load APEX Collections for report regions. Call from APEX Dynamic Actions (Execute Server-side Code) or Before Header processes. Package makes code reusable across pages and applications.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Wrap all SOAP calls in a dedicated PL/SQL package (e.g.<br><br>PCK_SOAP_API).<br><br>Centralizes URL, endpoint, envelope logic.<br><br>Functions return data (VARCHAR2/CLOB).<br><br>Procedures load APEX Collections for report regions.<br><br>Call from APEX Dynamic Actions (Execute Server-side Code) or Before Header processes.<br><br>Package makes code reusable across pages and applications.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">PCK_SOAP_API Structure</span><span class="rich-sub">PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">PL/SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">CREATE OR REPLACE PACKAGE PCK_SOAP_API AS
   FUNCTION f_SOAP_API_Hello(p_name VARCHAR2) RETURN VARCHAR2;
@@ -2002,7 +2121,7 @@ END PCK_SOAP_API;
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_COLLECTION is session-level temporary storage. Columns: c001-c050 (VARCHAR2), n001-n005 (NUMBER), clob001 (CLOB). Useful for SOAP because large XML responses cannot be embedded in dynamic SQL (causes ORA-06502 value conversion error). Workflow: SOAP API call &rarr; parse XML with XMLTABLE &rarr; insert rows into APEX_COLLECTION &rarr; query collection in Classic Report via apex_collections view.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">APEX_COLLECTION is session-level temporary storage.<br><br>Columns: c001-c050 (VARCHAR2), n001-n005 (NUMBER), clob001 (CLOB).<br><br>Useful for SOAP because large XML responses cannot be embedded in dynamic SQL (causes ORA-06502 value conversion error).<br><br>Workflow: SOAP API call &rarr; parse XML with XMLTABLE &rarr; insert rows into APEX_COLLECTION &rarr; query collection in Classic Report via apex_collections view.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Collection Usage</span><span class="rich-sub">PL/SQL</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">PL/SQL</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">IF APEX_COLLECTION.COLLECTION_EXISTS('MY_COL') THEN
   APEX_COLLECTION.DELETE_COLLECTION('MY_COL');
@@ -2021,7 +2140,7 @@ SELECT c001 AS code, c002 AS country FROM apex_collections WHERE collection_name
     <div class="question-details"><span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle ADB blocks all outbound HTTP by default &mdash; only HTTPS is allowed. HTTP SOAP services give ORA-20987 (URL prohibited). Solutions: 1) Use HTTPS SOAP services only (URL starts with https://). 2) Configure ACL using DBMS_NETWORK_ACL_ADMIN as DBA &mdash; requires DBA role not available to regular APEX schema. 3) OCI Console network settings. Always design SOAP integrations with HTTPS-only services on ADB.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Oracle ADB blocks all outbound HTTP by default &mdash; only HTTPS is allowed.<br><br>HTTP SOAP services give ORA-20987 (URL prohibited).<br><br>Solutions: 1) Use HTTPS SOAP services only (URL starts with https://). 2) Configure ACL using DBMS_NETWORK_ACL_ADMIN as DBA &mdash; requires DBA role not available to regular APEX schema. 3) OCI Console network settings.<br><br>Always design SOAP integrations with HTTPS-only services on ADB.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>ADB blocks HTTP &mdash; HTTPS only. ORA-20987 = URL prohibited. Always use HTTPS SOAP on ADB. DBMS_NETWORK_ACL_ADMIN needs DBA role.</p></div></div></div>
   </div>
@@ -2033,7 +2152,7 @@ SELECT c001 AS code, c002 AS country FROM apex_collections WHERE collection_name
     <div class="question-details"><span class="difficulty-badge" style="background:#fce7f3;color:#831843;border:1px solid #f9a8d4">advanced</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">WS-Security is message-level security for SOAP (vs HTTPS = transport-level). Security info goes in SOAP Header: UsernameToken (username + password/hash), BinarySecurityToken (X.509 cert), Signature (digital signature), Timestamp (prevents replay). Message is secure even through intermediaries &mdash; HTTPS only secures point-to-point. Used in banking, healthcare, government SOAP services requiring non-repudiation and message integrity.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">WS-Security is message-level security for SOAP (vs HTTPS = transport-level).<br><br>Security info goes in SOAP Header: UsernameToken (username + password/hash), BinarySecurityToken (X.509 cert), Signature (digital signature), Timestamp (prevents replay).<br><br>Message is secure even through intermediaries &mdash; HTTPS only secures point-to-point.<br><br>Used in banking, healthcare, government SOAP services requiring non-repudiation and message integrity.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">WS-Security UsernameToken</span><span class="rich-sub">XML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">XML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-sql">&lt;soap:Header&gt;
   &lt;wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/..."&gt;
@@ -2053,7 +2172,7 @@ SELECT c001 AS code, c002 AS country FROM apex_collections WHERE collection_name
     <div class="question-details"><span class="difficulty-badge" style="background:#fce7f3;color:#831843;border:1px solid #f9a8d4">advanced</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Choose SOAP when: formal WSDL contracts with strict type validation needed (banking/finance), WS-Security for message-level security, ACID transactions (WS-AtomicTransaction), integrating with legacy systems exposing only SOAP (SAP, older Oracle EBS), or organisation compliance mandates XML/SOAP. In APEX projects &mdash; if third-party system only provides SOAP, you must use it. If you control both ends, prefer REST.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Choose SOAP when: formal WSDL contracts with strict type validation needed (banking/finance), WS-Security for message-level security, ACID transactions (WS-AtomicTransaction), integrating with legacy systems exposing only SOAP (SAP, older Oracle EBS), or organisation compliance mandates XML/SOAP.<br><br>In APEX projects &mdash; if third-party system only provides SOAP, you must use it.<br><br>If you control both ends, prefer REST.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon tbl"><i class="fas fa-table"></i></div><span class="rich-lbl">Decision Guide</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="rich-tbl-wrap"><table class="rich-tbl"><thead><tr><th>Scenario</th><th>Use SOAP</th><th>Use REST</th></tr></thead><tbody><tr><td>Banking / Payment</td><td>Yes</td><td>Some modern</td></tr><tr><td>Legacy SAP/EBS</td><td>Yes &mdash; only SOAP</td><td>No</td></tr><tr><td>Mobile/Web API</td><td>No</td><td>Yes</td></tr><tr><td>New ORDS API</td><td>No</td><td>Yes</td></tr></tbody></table></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>SOAP for legacy/banking/strict contracts. REST for new APIs/mobile/microservices. In APEX use SOAP when external system forces it.</p></div></div></div>
   </div>
@@ -2065,7 +2184,7 @@ SELECT c001 AS code, c002 AS country FROM apex_collections WHERE collection_name
     <div class="question-details"><span class="difficulty-badge" style="background:#fce7f3;color:#831843;border:1px solid #f9a8d4">advanced</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Step 1 &mdash; WSDL: open serviceURL?WSDL, identify operations, input/output names, SOAPAction values, endpoint. Step 2 &mdash; Postman: POST, Content-Type: text/xml, SOAPAction header, raw XML body. Verify response XML and namespace prefixes. Step 3 &mdash; SQL Workshop: build envelope, APEX_WEB_SERVICE.MAKE_REQUEST, XMLTYPE.EXTRACT result. Step 4 &mdash; Package PCK_SOAP_API: spec + body with functions/procedures. Step 5 &mdash; APEX Page: text item + button + Dynamic Action for simple, or Before Header process + collection + Classic Report for lists. Step 6 &mdash; Documentation region.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Step 1 &mdash; WSDL: open serviceURL?WSDL, identify operations, input/output names, SOAPAction values, endpoint.<br><br>Step 2 &mdash; Postman: POST, Content-Type: text/xml, SOAPAction header, raw XML body.<br><br>Verify response XML and namespace prefixes.<br><br>Step 3 &mdash; SQL Workshop: build envelope, APEX_WEB_SERVICE.MAKE_REQUEST, XMLTYPE.EXTRACT result.<br><br>Step 4 &mdash; Package PCK_SOAP_API: spec + body with functions/procedures.<br><br>Step 5 &mdash; APEX Page: text item + button + Dynamic Action for simple, or Before Header process + collection + Classic Report for lists.<br><br>Step 6 &mdash; Documentation region.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon tbl"><i class="fas fa-table"></i></div><span class="rich-lbl">End-to-End Steps</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="rich-tbl-wrap"><table class="rich-tbl"><thead><tr><th>Step</th><th>Tool</th><th>What You Do</th></tr></thead><tbody><tr><td>1. WSDL</td><td>Browser</td><td>Find operations, SOAPAction, endpoint, namespaces</td></tr><tr><td>2. Postman</td><td>Postman</td><td>Test all operations, verify response XML</td></tr><tr><td>3. PL/SQL</td><td>SQL Workshop</td><td>MAKE_REQUEST + XMLTYPE.EXTRACT</td></tr><tr><td>4. Package</td><td>SQL Workshop</td><td>PCK_SOAP_API spec + body</td></tr><tr><td>5. Page</td><td>Page Designer</td><td>Items + DA or Collection + Report</td></tr><tr><td>6. Docs</td><td>Page Designer</td><td>Static Content documentation</td></tr></tbody></table></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>SOAP integration: WSDL &rarr; Postman &rarr; SQL Workshop &rarr; Package &rarr; APEX Page. Test each step. Use APEX_COLLECTION for multi-row XML responses.</p></div></div></div>
   </div>
@@ -2077,7 +2196,7 @@ SELECT c001 AS code, c002 AS country FROM apex_collections WHERE collection_name
     <div class="question-details"><span class="difficulty-badge" style="background:#fce7f3;color:#831843;border:1px solid #f9a8d4">advanced</span><div class="question-toggle"><i class="fas fa-chevron-down"></i></div></div>
   </div>
   <div class="question-content" style="display:none;" aria-hidden="true">
-    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">REST: MAKE_REST_REQUEST returns CLOB (JSON text). Parse with APEX_JSON (GET_VARCHAR2/GET_NUMBER) or JSON_TABLE for arrays. Web Source Modules give declarative no-code option. SOAP: MAKE_REQUEST returns XMLTYPE (XML object). Parse with XMLTYPE.EXTRACT + XPath + namespace declarations, or XMLTABLE for multiple rows. No declarative equivalent &mdash; must write PL/SQL. Key: REST=CLOB/JSON, SOAP=XMLTYPE/XML, namespaces required for SOAP.</p></div></div>
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">REST: MAKE_REST_REQUEST returns CLOB (JSON text).<br><br>Parse with APEX_JSON (GET_VARCHAR2/GET_NUMBER) or JSON_TABLE for arrays.<br><br>Web Source Modules give declarative no-code option.<br><br>SOAP: MAKE_REQUEST returns XMLTYPE (XML object).<br><br>Parse with XMLTYPE.EXTRACT + XPath + namespace declarations, or XMLTABLE for multiple rows.<br><br>No declarative equivalent &mdash; must write PL/SQL.<br><br>Key: REST=CLOB/JSON, SOAP=XMLTYPE/XML, namespaces required for SOAP.</p></div></div>
     <button class="details-toggle-btn" onclick="toggleDetails(this)"><span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details</button>
     <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon tbl"><i class="fas fa-table"></i></div><span class="rich-lbl">REST vs SOAP in APEX</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="rich-tbl-wrap"><table class="rich-tbl"><thead><tr><th>Feature</th><th>REST in APEX</th><th>SOAP in APEX</th></tr></thead><tbody><tr><td>APEX function</td><td>MAKE_REST_REQUEST</td><td>MAKE_REQUEST</td></tr><tr><td>Returns</td><td>CLOB (JSON)</td><td>XMLTYPE (XML)</td></tr><tr><td>Parse single</td><td>APEX_JSON.GET_VARCHAR2</td><td>XMLTYPE.EXTRACT + XPath</td></tr><tr><td>Parse multiple</td><td>JSON_TABLE</td><td>XMLTABLE + XMLNAMESPACES</td></tr><tr><td>No-code option</td><td>Web Source Modules</td><td>None &mdash; must code</td></tr><tr><td>Namespaces</td><td>Not required</td><td>Required &mdash; ORA-19228 if missing</td></tr></tbody></table></div></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>REST=CLOB/JSON, SOAP=XMLTYPE/XML. REST has Web Source Modules (no-code). SOAP needs PL/SQL + namespaces. Both support APEX_COLLECTION for storing results.</p></div></div></div>
   </div>
@@ -2111,15 +2230,15 @@ SELECT c001 AS code, c002 AS country FROM apex_collections WHERE collection_name
       <div class="footer-col">
         <h4>Platform</h4>
         <ul>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="index.html#login">Request Access</a></li>
-          <li><a href="index.html#admin">Admin</a></li>
+          <li><a onclick="navigate('about')" style="cursor:pointer">About</a></li>
+          <li><a onclick="navigate('contact')" style="cursor:pointer">Contact</a></li>
+          <li><a onclick="navigateToRequest()" style="cursor:pointer">Request Access</a></li>
+          <li><a onclick="navigate('admin')" style="cursor:pointer">Admin</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2025–2026 APEX Interview Mastery. All rights reserved.</span>
+      <span class="footer-copy">© 2025 APEX Interview Mastery. All rights reserved.</span>
       <span class="footer-made">Made with <i class="fas fa-heart"></i> for Oracle developers</span>
     </div>
   </footer>
