@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — APEX Interview Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+<style>
+:root {
+  --bg-base:        #f5f0e8;
+  --bg-surface:     #ede7da;
+  --bg-card:        #faf7f2;
+  --bg-nav:         rgba(245,240,232,0.94);
+  --border-soft:    rgba(160,130,100,0.13);
+  --border-mid:     rgba(160,130,100,0.22);
+  --text-primary:   #1c1208;
+  --text-secondary: #5a4a35;
+  --text-muted:     #9a856a;
+  --accent:         #2d6446;
+  --accent-light:   #3a7d57;
+  --accent-pale:    #f0f7f3;
+  --accent-border:  rgba(45,100,70,0.2);
+  --shadow-sm:  0 1px 4px rgba(100,70,40,0.06);
+  --shadow-md:  0 4px 20px rgba(100,70,40,0.09);
+  --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 20px; --r-pill: 100px;
+  --transition: 0.2s ease;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--bg-base); color:var(--text-primary);
+  font-family:'DM Sans',sans-serif; font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh; display:flex; flex-direction:column;
+}
+a { text-decoration:none; color:inherit; }
+
+/* NAV */
+.nav {
+  position:sticky; top:0; z-index:500;
+  background:var(--bg-nav); backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border-soft);
+  height:64px; display:flex; align-items:center;
+  padding:0 48px;
+}
+.nav-logo {
+  display:flex; align-items:center; gap:10px; cursor:pointer;
+}
+.nav-logo-mark {
+  width:32px; height:32px; border-radius:9px; background:var(--accent);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:13px; font-weight:700;
+  font-family:'Bricolage Grotesque',sans-serif;
+}
+.nav-logo-text {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:17px; font-weight:700; color:var(--text-primary); letter-spacing:-0.4px;
+}
+
+/* MAIN */
+main {
+  flex:1; display:flex; align-items:center; justify-content:center;
+  padding:80px 24px;
+}
+.error-wrap {
+  text-align:center; max-width:520px;
+}
+.error-code {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(80px,18vw,140px); font-weight:800;
+  letter-spacing:-6px; color:var(--accent); line-height:1;
+  opacity:0.15; user-select:none; margin-bottom:-16px;
+}
+.error-icon {
+  font-size:56px; margin-bottom:24px; display:block;
+}
+.error-title {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(24px,4vw,36px); font-weight:800;
+  letter-spacing:-1px; color:var(--text-primary); margin-bottom:12px;
+}
+.error-desc {
+  color:var(--text-muted); font-size:15px; font-weight:300;
+  line-height:1.7; margin-bottom:36px;
+}
+.error-code-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--bg-card); border:1px solid var(--border-soft);
+  border-radius:var(--r-sm); padding:8px 14px;
+  font-family:'DM Mono',monospace; font-size:13px;
+  color:var(--text-muted); margin-bottom:36px;
+}
+.error-code-tag i { color:var(--accent); }
+
+.btn-group { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:12px 26px; border-radius:var(--r-pill);
+  font-size:15px; font-weight:600; cursor:pointer;
+  transition:all 0.25s; border:none; font-family:'DM Sans',sans-serif;
+}
+.btn-primary { background:var(--accent); color:#fff; }
+.btn-primary:hover { background:var(--accent-light); transform:translateY(-2px); box-shadow:0 12px 32px rgba(45,100,70,0.22); }
+.btn-secondary { background:var(--bg-card); color:var(--text-secondary); border:1px solid var(--border-mid); box-shadow:var(--shadow-sm); }
+.btn-secondary:hover { color:var(--text-primary); transform:translateY(-1px); box-shadow:var(--shadow-md); }
+
+/* Quick links */
+.quick-links {
+  margin-top:48px; padding-top:40px;
+  border-top:1px solid var(--border-soft);
+}
+.quick-links-label {
+  font-size:12px; font-weight:700; text-transform:uppercase;
+  letter-spacing:2px; color:var(--text-muted); margin-bottom:16px;
+}
+.quick-links-grid {
+  display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+}
+.quick-link {
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--bg-card); border:1px solid var(--border-soft);
+  border-radius:var(--r-sm); padding:8px 14px;
+  font-size:13px; font-weight:500; color:var(--text-secondary);
+  transition:all var(--transition); cursor:pointer;
+}
+.quick-link:hover { color:var(--accent); border-color:var(--accent-border); background:var(--accent-pale); }
+.quick-link i { font-size:12px; }
+
+/* FOOTER */
+.footer {
+  background:var(--bg-surface); border-top:1px solid var(--border-soft);
+  padding:24px 48px;
+}
+.footer-bottom {
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:8px;
+}
+.footer-copy { font-size:13px; color:var(--text-muted); }
+.footer-made { font-size:13px; color:var(--text-muted); display:flex; align-items:center; gap:4px; }
+.footer-made i { color:#c0392b; font-size:11px; }
+
+@media(max-width:768px){
+  .nav { padding:0 20px; }
+  .footer { padding:24px 20px; }
+  .footer-bottom { justify-content:center; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-mark">A</div>
+    <span class="nav-logo-text">APEX Mastery</span>
+  </a>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <div class="error-wrap">
+    <div class="error-code">404</div>
+    <span class="error-icon">🔍</span>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-desc">
+      The page you're looking for doesn't exist or may have been moved.
+      Let's get you back on track.
+    </p>
+    <div class="error-code-tag">
+      <i class="fas fa-terminal"></i>
+      ORA-00942: table or view does not exist
+    </div>
+
+    <div class="btn-group">
+      <a href="index.html" class="btn btn-primary">
+        <i class="fas fa-home"></i> Back to Home
+      </a>
+      <a href="oracle-apex.html" class="btn btn-secondary">
+        <i class="fas fa-book-open"></i> Browse Questions
+      </a>
+    </div>
+
+    <div class="quick-links">
+      <div class="quick-links-label">Quick Links</div>
+      <div class="quick-links-grid">
+        <a href="oracle-sql.html" class="quick-link"><i class="fas fa-database"></i> Oracle SQL</a>
+        <a href="plsql.html" class="quick-link"><i class="fas fa-code"></i> PL/SQL</a>
+        <a href="oracle-apex.html" class="quick-link"><i class="fas fa-layer-group"></i> APEX</a>
+        <a href="oracle-apex-quiz.html" class="quick-link"><i class="fas fa-circle-question"></i> Quiz</a>
+        <a href="pdf-resources.html" class="quick-link"><i class="fas fa-file-pdf"></i> PDFs</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025–2026 APEX Interview Mastery. All rights reserved.</span>
+    <span class="footer-made">Made with <i class="fas fa-heart"></i> for Oracle developers</span>
+  </div>
+</footer>
+
+</body>
+</html>

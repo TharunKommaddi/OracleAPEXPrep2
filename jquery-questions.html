@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery Interview Questions — APEX Interview Mastery</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <span class="nav-logo-text">APEX Mastery</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="oracle-sql.html"><i class="fas fa-database"></i> Oracle SQL</a></li>
+    <li><a href="plsql.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+    <li><a href="oracle-apex.html"><i class="fas fa-layer-group"></i> APEX</a></li>
+    <li class="nav-dropdown">
+      <a><i class="fas fa-paint-brush"></i> Frontend <i class="fas fa-chevron-down" style="font-size:11px;margin-left:2px"></i></a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="html-questions.html"><i class="fab fa-html5"></i> HTML</a></li>
+        <li><a href="css-questions.html"><i class="fab fa-css3-alt"></i> CSS</a></li>
+        <li><a href="javascript-questions.html"><i class="fab fa-js"></i> JavaScript</a></li>
+        <li><a href="jquery-questions.html" class="active"><i class="fas fa-dollar-sign"></i> jQuery</a></li>
+      </ul>
+    </li>
+    <li><a href="oracle-apex-quiz.html"><i class="fas fa-circle-question"></i> Quiz</a></li>
+    <li><a href="pdf-resources.html"><i class="fas fa-file-pdf"></i> PDFs</a></li>
+    <li><a href="index.html#about"><i class="fas fa-info-circle"></i> About</a></li>
+    <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions">
+    <!-- Injected by JS based on auth state -->
+  </div>
+</nav>
+
+<div class="page-header">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="page-eyebrow">jQuery</div>
+    <h1 class="page-title">jQuery Interview Questions</h1>
+    <p class="page-subtitle">5 questions — Basic to Advanced · Click to expand · + for code &amp; details</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="filter-section">
+    <div class="filter-title"><i class="fas fas fa-dollar-sign"></i> Filter Questions</div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All (5)</button>
+      <button class="filter-tab" data-filter="basic">Basic (3)</button>
+      <button class="filter-tab" data-filter="intermediate">Intermediate (2)</button>
+      <button class="filter-tab" data-filter="advanced">Advanced (0)</button>
+    </div>
+    <div class="search-wrap">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search jQuery questions...">
+    </div>
+  </div>
+  <div id="questionsContainer">
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q1. What is jQuery and what problems does it solve?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">jQuery is a fast, small JavaScript library that simplifies HTML DOM traversal, manipulation, event handling, animation, and AJAX. It solves cross-browser compatibility issues (jQuery handles differences between Chrome, Firefox, IE) and reduces verbose vanilla JavaScript into concise, chainable code. jQuery uses the $ shorthand. Oracle APEX ships with jQuery built-in and extensively uses it for UI components, Dynamic Actions, and the apex.jQuery namespace to avoid conflicts with other libraries.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// Vanilla JS vs jQuery comparison
+
+// Find and style element
+// Vanilla:
+document.querySelectorAll('.card').forEach(el =&gt; {
+  el.style.display = 'none';
+});
+// jQuery:
+$('.card').hide();
+
+// Add event listener
+// Vanilla:
+document.getElementById('btn').addEventListener('click', handleClick);
+// jQuery:
+$('#btn').on('click', handleClick);
+
+// AJAX call
+// Vanilla: many lines of fetch...
+// jQuery:
+$.ajax({
+  url:     '/api/data',
+  method:  'GET',
+  success: data =&gt; console.log(data),
+  error:   xhr  =&gt; console.error(xhr)
+});
+
+// In APEX: use apex.jQuery to avoid conflicts
+var $ = apex.jQuery;
+$('#P1_DEPT').val('10').trigger('change');</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>jQuery is a fast, small JavaScript library that simplifies HTML DOM traversal, manipulation, event handling, animation, and AJAX.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q2. What are jQuery selectors and how do they work?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">jQuery selectors follow CSS selector syntax to find DOM elements and return a jQuery object (collection). They support all CSS selectors plus jQuery-specific selectors like :eq(), :first, :last, :even, :odd, :visible, :hidden, :has(), and :contains(). The resulting jQuery object supports method chaining. jQuery selectors are wrapped in $() and search the entire document by default, or within a context element for better performance.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// Basic selectors
+$('#empId')          // by ID
+$('.card')           // by class
+$('table')           // by element
+$('input[type=text]')// by attribute
+$('.card.active')    // combined classes
+
+// jQuery-specific selectors
+$('tr:even')         // even rows (zebra)
+$('tr:odd')          // odd rows
+$('li:first')        // first list item
+$('li:last')         // last list item
+$('li:eq(2)')        // third item (0-indexed)
+$(':visible')        // only visible elements
+$(':hidden')         // only hidden elements
+$(':contains("Alice")') // elements containing text
+
+// Context selector (faster - search within)
+$('#emp-table').find('td.salary')
+
+// Chaining
+$('.card')
+  .addClass('highlighted')
+  .css('border', '2px solid #2d6446')
+  .fadeIn(300);
+
+// APEX item selectors
+$('#P1_DEPT_ID')     // APEX item by ID
+$('[id^="P1_"]')     // all page 1 items</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>jQuery selectors follow CSS selector syntax to find DOM elements and return a jQuery object (collection).</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="intermediate">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q3. How do jQuery AJAX methods work?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">jQuery provides $.ajax() (full-featured), $.get() and $.post() (shorthand), and $.getJSON() for AJAX calls. All return jQuery Deferred objects (Promise-like). $.ajax() supports all HTTP methods, headers, data types, timeouts, and error handling. In APEX, prefer apex.server.process() and apex.server.pluginUrl() over raw jQuery AJAX as they automatically include the APEX session token, handle errors in APEX style, and integrate with APEX's spinner and loading indicators.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// $.ajax: full control
+$.ajax({
+  url:         '/ords/hr/employees/101',
+  method:      'GET',
+  dataType:    'json',
+  timeout:     5000,
+  beforeSend:  xhr =&gt; xhr.setRequestHeader('Authorization','Bearer '+token),
+  success:     data  =&gt; { $('#P1_NAME').val(data.employee_name); },
+  error:       (xhr, status, err) =&gt; console.error(status, err),
+  complete:    () =&gt; apex.util.showSpinner(false)
+});
+
+// Shorthand
+$.get('/api/employees', { dept: 10 }, data =&gt; console.log(data));
+$.post('/api/employees', { name: 'Alice', salary: 50000 });
+$.getJSON('/api/depts', data =&gt; console.log(data.length + ' depts'));
+
+// APEX server process (recommended in APEX)
+apex.server.process('LOAD_EMP', {
+  pageItems: '#P1_EMP_ID'  // sends item values
+}, {
+  success: data =&gt; {
+    apex.item('P1_NAME').setValue(data.name);
+    apex.item('P1_SALARY').setValue(data.salary);
+  }
+});</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>jQuery provides $.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="intermediate">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q4. What are jQuery event methods?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">jQuery event methods bind and manage DOM events. The primary method is .on() which attaches event handlers to elements and supports event delegation (handling events on future/dynamic elements). .off() removes handlers. .trigger() programmatically fires events. .one() fires a handler only once. Event delegation with .on() is essential for APEX dynamic content where regions get refreshed — binding directly would lose handlers on refresh.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// Basic event binding
+$('#save-btn').on('click', function(e) {
+  e.preventDefault();  // stop default action
+  const empId = $(this).data('emp-id');
+  console.log('Saving emp:', empId);
+});
+
+// Multiple events at once
+$('#salary-field').on('focus blur keyup', function(e) {
+  if (e.type === 'keyup') validateSalary($(this).val());
+});
+
+// Event delegation (handles dynamic elements)
+// Use on parent that exists at page load
+$('#emp-table').on('click', '.delete-btn', function() {
+  const row = $(this).closest('tr');
+  const id  = $(this).data('emp-id');
+  confirmAndDelete(id, row);
+});
+// Works even for rows added after page load!
+
+// Trigger events programmatically
+$('#P1_DEPT').trigger('change');  // fire change event
+$('#P1_DEPT').triggerHandler('change'); // fire without bubbling
+
+// One-time handler
+$('#modal').one('click', '.confirm', () =&gt; processApproval());
+
+// Remove handler
+$('#btn').off('click');</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>jQuery event methods bind and manage DOM events.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q5. What is the difference between $(document).ready() and window.onload?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">$(document).ready() fires when the HTML DOM is fully parsed and ready to be manipulated — images and external resources may still be loading. This is the right place to initialize jQuery code. window.onload fires when the entire page including all images, stylesheets, and iframes have finished loading — much later. In modern JavaScript, DOMContentLoaded is the native equivalent of $(document).ready(). In APEX, use apex.jQuery(document).ready() or the APEX JavaScript initialization event instead.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// jQuery ready (DOM parsed, images may still load)
+$(document).ready(function() {
+  console.log('DOM ready - safe to use jQuery');
+  $('#emp-table').DataTable(); // initialize plugins
+});
+
+// Shorthand (same thing)
+$(function() {
+  console.log('DOM ready (shorthand)');
+});
+
+// window.onload (everything loaded)
+window.onload = function() {
+  console.log('All resources loaded (images etc)');
+  measurePageLayout(); // images are loaded, dimensions correct
+};
+
+// Native equivalent
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Native DOMContentLoaded');
+});
+
+// APEX equivalent
+apex.jQuery(document).ready(function() {
+  console.log('APEX-safe ready');
+});
+// Or use APEX Execute JavaScript Code Dynamic Action
+// which automatically runs after page loads</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>$(document).</p></div></div></div>
+  </div>
+</div>
+  
+
+
+<footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><div class="footer-logo-mark">A</div><span class="footer-logo-text">APEX Interview Mastery</span></div>
+        <p class="footer-brand-desc">The most comprehensive preparation platform for Oracle APEX developers. Built with care, for developers who want to land the job.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="oracle-sql.html">Oracle SQL</a></li>
+          <li><a href="plsql.html">PL/SQL</a></li>
+          <li><a href="oracle-apex.html">Oracle APEX</a></li>
+          <li><a href="oracle-apex-quiz.html">APEX Quiz</a></li>
+          <li><a href="pdf-resources.html">PDF Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Frontend</h4>
+        <ul>
+          <li><a href="html-questions.html">HTML</a></li>
+          <li><a href="css-questions.html">CSS</a></li>
+          <li><a href="javascript-questions.html">JavaScript</a></li>
+          <li><a href="jquery-questions.html">jQuery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#login">Request Access</a></li>
+          <li><a href="index.html#admin">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 APEX Interview Mastery. All rights reserved.</span>
+      <span class="footer-made">Made with <i class="fas fa-heart"></i> for Oracle developers</span>
+    </div>
+  </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var container = document.getElementById('questionsContainer');
+  if (!container) return;
+
+  // Question click - open/close
+  container.addEventListener('click', function(e) {
+    if (e.target.closest('.details-toggle-btn')) return;
+    if (e.target.closest('.rich-cp-btn')) return;
+    var header = e.target.closest('.question-header');
+    if (!header) return;
+    var card    = header.closest('.question-container');
+    if (!card) return;
+    var content = card.querySelector('.question-content');
+    if (!content) return;
+    var icon    = header.querySelector('.question-toggle');
+    var isOpen  = content.style.display === 'block';
+    content.style.display = isOpen ? 'none' : 'block';
+    if (icon) icon.classList.toggle('rotated', !isOpen);
+  });
+
+  // Filter tabs
+  document.querySelectorAll('.filter-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.dataset.filter;
+      document.querySelectorAll('.question-container').forEach(function(card) {
+        card.style.display = (f === 'all' || card.dataset.difficulty === f) ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Search
+  var searchEl = document.getElementById('searchInput');
+  if (searchEl) {
+    searchEl.addEventListener('input', function() {
+      var q = this.value.toLowerCase().trim();
+      document.querySelectorAll('.question-container').forEach(function(card) {
+        card.style.display = (!q || card.textContent.toLowerCase().includes(q)) ? 'block' : 'none';
+      });
+    });
+  }
+});
+
+// Inner + / - toggle
+function toggleDetails(btn) {
+  var body = btn.nextElementSibling;
+  if (!body) return;
+  var isOpen = body.classList.contains('open');
+  if (isOpen) {
+    body.classList.remove('open');
+    btn.innerHTML = '<span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details';
+  } else {
+    body.classList.add('open');
+    btn.innerHTML = '<span class="toggle-icon">&#8722;</span>&nbsp;Hide Details';
+    if (window.Prism) {
+      setTimeout(function() {
+        body.querySelectorAll('code[class*="language-"]').forEach(function(el) {
+          Prism.highlightElement(el);
+        });
+      }, 50);
+    }
+  }
+}
+
+// Copy code
+function copyCode(btn) {
+  var blk = btn.closest('.rich-code-blk');
+  if (!blk) return;
+  var code = blk.querySelector('code').textContent;
+  navigator.clipboard.writeText(code).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = code; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+  });
+  var orig = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+  btn.style.color = '#a8d080';
+  setTimeout(function() { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+}
+</script>
+
+</body>
+</body>
+</html>

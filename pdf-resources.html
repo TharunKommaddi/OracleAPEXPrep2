@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Resources — APEX Interview Mastery</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📄</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="page-eyebrow">Study Materials</div>
+    <h1 class="page-title">PDF Resources</h1>
+    <p class="page-subtitle">Click any PDF in the sidebar to view · Download or open in new tab</p>
+  </div>
+</div>
+
+<!-- Main viewer layout -->
+<div class="pdf-page-wrap">
+
+  <!-- Sidebar -->
+  <div class="pdf-sidebar">
+    <div class="pdf-sidebar-title">
+      <i class="fas fa-file-pdf"></i> Available PDFs
+    </div>
+    <ul class="pdf-list" id="pdfList"></ul>
+  </div>
+
+  <!-- Viewer -->
+  <div class="pdf-viewer-wrap">
+    <div class="pdf-viewer-header">
+      <div class="pdf-viewer-title" id="viewerTitle">Select a PDF to view</div>
+      <div class="pdf-ctrl-btns">
+        <div class="viewer-modes" id="viewerModes">
+          <button class="mode-btn active" data-mode="google">Google Docs</button>
+          <button class="mode-btn" data-mode="mozilla">Mozilla</button>
+          <button class="mode-btn" data-mode="embed">Direct</button>
+        </div>
+        <button class="pdf-ctrl-btn dl-btn" id="btnDownload">
+          <i class="fas fa-download"></i> Download
+        </button>
+        <button class="pdf-ctrl-btn" id="btnNewTab">
+          <i class="fas fa-external-link-alt"></i> New Tab
+        </button>
+        <button class="pdf-ctrl-btn" id="btnFullscreen">
+          <i class="fas fa-expand"></i> Fullscreen
+        </button>
+      </div>
+    </div>
+
+    <!-- Placeholder -->
+    <div class="pdf-placeholder" id="statePlaceholder">
+      <div class="ph-icon"><i class="fas fa-file-pdf"></i></div>
+      <h3>Welcome to PDF Resources</h3>
+      <p>Select any PDF from the sidebar to start reading. All materials are prepared for Oracle SQL &amp; APEX interviews.</p>
+      <p style="font-size:12px;margin-top:12px;color:var(--text-faint)"><i class="fas fa-lightbulb"></i> Tip: Use "New Tab" for best zoom experience on mobile</p>
+    </div>
+
+    <!-- Loading -->
+    <div class="pdf-loading" id="stateLoading">
+      <div class="pdf-spinner"></div>
+      <p>Loading PDF via Google Docs viewer...</p>
+    </div>
+
+    <!-- iFrame -->
+    <iframe class="pdf-iframe" id="pdfFrame"
+      allow="fullscreen"
+      allowfullscreen
+      sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation allow-pointer-lock"
+      style="touch-action:auto;-ms-touch-action:auto;"></iframe>
+
+    <!-- Error -->
+    <div class="pdf-error" id="stateError">
+      <i class="fas fa-exclamation-triangle"></i>
+      <h3>Could not display PDF</h3>
+      <p>All viewer modes failed. The PDF may not be uploaded to the repository yet. You can still open or download it directly.</p>
+      <div class="pdf-err-btns">
+        <button class="pdf-err-btn primary" onclick="PDFApp.retry()">
+          <i class="fas fa-rotate-right"></i> Retry
+        </button>
+        <button class="pdf-err-btn" onclick="PDFApp.openTab()">
+          <i class="fas fa-external-link-alt"></i> Open in New Tab
+        </button>
+        <button class="pdf-err-btn" onclick="PDFApp.download()">
+          <i class="fas fa-download"></i> Download
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Coming soon section -->
+<div class="pdf-coming-section">
+  <div style="margin-bottom:16px">
+    <div class="page-eyebrow">Coming Soon</div>
+    <h2 class="page-title" style="font-size:26px">Interview Preparation Guides</h2>
+    <p class="page-subtitle">Full interview guides with questions and model answers</p>
+  </div>
+  <div class="pdf-coming-grid">
+    <div class="pdf-card-coming">
+      <div class="pc-icon"><i class="fas fa-file-pdf"></i></div>
+      <h4>Top 50 APEX Interview Q&amp;A</h4>
+      <p>Most commonly asked Oracle APEX interview questions with detailed model answers, code examples, and examiner tips.</p>
+      <span class="pc-soon-pill"><i class="fas fa-clock"></i> Coming Soon</span>
+    </div>
+    <div class="pdf-card-coming">
+      <div class="pc-icon"><i class="fas fa-file-pdf"></i></div>
+      <h4>SQL &amp; PL/SQL Interview Guide</h4>
+      <p>Comprehensive Oracle SQL and PL/SQL interview preparation with real-world scenarios, query challenges, and step-by-step solutions.</p>
+      <span class="pc-soon-pill"><i class="fas fa-clock"></i> Coming Soon</span>
+    </div>
+  </div>
+</div>
+
+<div class="pdf-toast" id="toast"></div>
+
+<div id="footer-placeholder"></div>
+
+<!-- SCRIPTS -->
+<script src="assets/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  renderNav('pdf');
+  renderFooter();
+  PDFApp.init();
+});
+
+const PDF_RESOURCES = [
+  {
+    id: 'apex-mcq',
+    filename: 'Apex MCQ assessment (3).pdf',
+    title: 'APEX MCQ Assessment',
+    desc: 'Multiple choice questions covering Oracle APEX concepts, components, and best practices',
+    category: 'APEX'
+  },
+  {
+    id: 'sql-infographic-1',
+    filename: 'Oracle_SQL_PL_SQL_Infographics_Part_1.pdf',
+    title: 'Oracle SQL & PL/SQL Infographics — Part 1',
+    desc: 'DELETE/TRUNCATE/DROP, SQL Views, Tables, CTE, UNION vs UNION ALL, NVL/COALESCE/NVL2/NULLIF, PL/SQL Triggers, SQL Subqueries, Materialized Views',
+    category: 'SQL'
+  },
+  {
+    id: 'sql-infographic-2',
+    filename: 'Oracle_SQL_PL_SQL_Infographics_Part_2.pdf',
+    title: 'Oracle SQL & PL/SQL Infographics — Part 2',
+    desc: 'BULK SQL, PL/SQL Triggers, NVL/COALESCE/NVL2/NULLIF, PL/SQL Cursors, Transactions, ROW_NUMBER/RANK/DENSE_RANK, SQL Joins',
+    category: 'SQL'
+  },
+  {
+    id: 'sql-infographic-3',
+    filename: 'Oracle_SQL_PL_SQL_Infographics_Part_3.pdf',
+    title: 'Oracle SQL & PL/SQL Infographics — Part 3',
+    desc: 'SQL Window Functions, EXISTS vs IN vs JOIN, SQL Subqueries, SQL Functions, PL/SQL MERGE Statement',
+    category: 'PL/SQL'
+  },
+  {
+    id: 'sql-infographic-4',
+    filename: 'Oracle_SQL_PL_SQL_Infographics_Part_4.pdf',
+    title: 'Oracle SQL & PL/SQL Infographics — Part 4',
+    desc: 'SQL Constraints, Normalization (1NF–BCNF), PL/SQL Packages, Hierarchical Queries, Date Functions, TCL/DDL/DML/DCL, PL/SQL Sequences, Collections',
+    category: 'PL/SQL'
+  },
+  {
+    id: 'sql-infographic-5',
+    filename: 'Oracle_SQL_PL_SQL_Infographics_Part_5.pdf',
+    title: 'Oracle SQL & PL/SQL Infographics — Part 5',
+    desc: 'PIVOT vs UNPIVOT, SQL CTE, SQL Indexes, PL/SQL Exception Handling, Dynamic SQL, Window Functions, SQL Joins, GROUP BY vs PARTITION BY',
+    category: 'PL/SQL'
+  },
+  {
+    id: 'sql-cheatsheet',
+    filename: 'SQL cheatsheet (1) (20).pdf',
+    title: 'Oracle SQL Cheat Sheet',
+    desc: 'All key SQL clauses, JOIN types, aggregate functions, window functions and Oracle-specific syntax',
+    category: 'SQL'
+  }
+];
+
+const GITHUB = {
+  user  : 'TharunKommaddi',
+  repo  : 'OracleAPEXPrep1',
+  branch: 'main',
+  folder: 'PDF'
+};
+
+const PDFApp = {
+  current  : null,
+  mode     : 'google',
+  loadTimer: null,
+
+  rawUrl(filename) {
+    return `https://raw.githubusercontent.com/${GITHUB.user}/${GITHUB.repo}/${GITHUB.branch}/${GITHUB.folder}/${encodeURIComponent(filename)}`;
+  },
+  webUrl(filename) {
+    return `https://github.com/${GITHUB.user}/${GITHUB.repo}/blob/${GITHUB.branch}/${GITHUB.folder}/${encodeURIComponent(filename)}`;
+  },
+  pagesUrl(filename) {
+    return `https://${GITHUB.user}.github.io/${GITHUB.repo}/PDF/${encodeURIComponent(filename)}`;
+  },
+  viewerUrl(filename, mode) {
+    const raw   = this.rawUrl(filename);
+    const pages = this.pagesUrl(filename);
+    if (mode === 'google')  return `https://docs.google.com/gview?url=${encodeURIComponent(raw)}&embedded=true`;
+    if (mode === 'mozilla') return `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(pages)}`;
+    return pages;
+  },
+
+  init() {
+    this.renderList();
+    document.getElementById('pdfList').addEventListener('click', e => {
+      const item = e.target.closest('.pdf-item');
+      if (item) this.load(item.dataset.id);
+    });
+    document.getElementById('viewerModes').addEventListener('click', e => {
+      if (e.target.classList.contains('mode-btn')) this.switchMode(e.target.dataset.mode);
+    });
+    document.getElementById('btnDownload').addEventListener('click',   () => this.download());
+    document.getElementById('btnNewTab').addEventListener('click',     () => this.openTab());
+    document.getElementById('btnFullscreen').addEventListener('click', () => this.fullscreen());
+  },
+
+  renderList() {
+    const catClass = { APEX:'cat-apex', SQL:'cat-sql', 'PL/SQL':'cat-plsql' };
+    document.getElementById('pdfList').innerHTML = PDF_RESOURCES.map(p => `
+      <li class="pdf-item" data-id="${p.id}">
+        <div class="pdf-item-icon"><i class="fas fa-file-pdf"></i></div>
+        <div class="pdf-item-info">
+          <h4>${p.title}</h4>
+          <p>${p.desc}</p>
+          <span class="pdf-cat-badge ${catClass[p.category] || 'cat-basic'}">${p.category}</span>
+        </div>
+      </li>`).join('');
+  },
+
+  load(id) {
+    const pdf = PDF_RESOURCES.find(p => p.id === id);
+    if (!pdf) return;
+    this.current = pdf;
+    document.querySelectorAll('.pdf-item').forEach(el =>
+      el.classList.toggle('active', el.dataset.id === id));
+    document.getElementById('viewerTitle').textContent = pdf.title;
+    this.setState('loading');
+    clearTimeout(this.loadTimer);
+    const frame = document.getElementById('pdfFrame');
+    frame.src = 'about:blank';
+    frame.onload = () => {
+      clearTimeout(this.loadTimer);
+      setTimeout(() => { this.setState('viewer'); this.showControls(); }, 400);
+    };
+    frame.onerror = () => this.handleError();
+    setTimeout(() => { frame.src = this.viewerUrl(pdf.filename, this.mode); }, 100);
+    this.loadTimer = setTimeout(() => {
+      if (document.getElementById('stateLoading').classList.contains('show')) {
+        this.setState('viewer'); this.showControls();
+      }
+    }, 12000);
+  },
+
+  switchMode(mode) {
+    this.mode = mode;
+    document.querySelectorAll('.mode-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.mode === mode));
+    if (this.current) this.load(this.current.id);
+  },
+
+  setState(state) {
+    const placeholder = document.getElementById('statePlaceholder');
+    const loading     = document.getElementById('stateLoading');
+    const frame       = document.getElementById('pdfFrame');
+    const error       = document.getElementById('stateError');
+    placeholder.style.display = state === 'placeholder' ? 'flex' : 'none';
+    loading.classList.toggle('show', state === 'loading');
+    frame.classList.toggle('show',   state === 'viewer');
+    error.classList.toggle('show',   state === 'error');
+  },
+
+  showControls() {
+    ['btnDownload','btnNewTab','btnFullscreen'].forEach(id =>
+      document.getElementById(id).classList.add('show'));
+    document.getElementById('viewerModes').classList.add('show');
+  },
+
+  handleError() {
+    clearTimeout(this.loadTimer);
+    if (this.mode === 'embed')  { this.switchMode('google');  return; }
+    if (this.mode === 'google') { this.switchMode('mozilla'); return; }
+    this.setState('error');
+  },
+
+  retry()    { if (this.current) this.load(this.current.id); },
+  download() {
+    if (!this.current) return;
+    const link = document.createElement('a');
+    link.href     = this.rawUrl(this.current.filename);
+    link.download = this.current.filename;
+    link.target   = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    this.toast(`"${this.current.title}" — download started!`);
+  },
+  openTab()  { if (this.current) window.open(this.pagesUrl(this.current.filename), '_blank'); },
+  fullscreen() {
+    const frame = document.getElementById('pdfFrame');
+    const fn = frame.requestFullscreen || frame.webkitRequestFullscreen || frame.msRequestFullscreen;
+    if (fn) fn.call(frame);
+  },
+  toast(msg) {
+    const t = document.getElementById('toast');
+    t.innerHTML = `<i class="fas fa-check-circle"></i> ${msg}`;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+};
+</script>
+
+</body>
+</html>

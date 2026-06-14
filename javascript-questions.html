@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Interview Questions — APEX Interview Mastery</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <span class="nav-logo-text">APEX Mastery</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="oracle-sql.html"><i class="fas fa-database"></i> Oracle SQL</a></li>
+    <li><a href="plsql.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+    <li><a href="oracle-apex.html"><i class="fas fa-layer-group"></i> APEX</a></li>
+    <li class="nav-dropdown">
+      <a><i class="fas fa-paint-brush"></i> Frontend <i class="fas fa-chevron-down" style="font-size:11px;margin-left:2px"></i></a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="html-questions.html"><i class="fab fa-html5"></i> HTML</a></li>
+        <li><a href="css-questions.html"><i class="fab fa-css3-alt"></i> CSS</a></li>
+        <li><a href="javascript-questions.html" class="active"><i class="fab fa-js"></i> JavaScript</a></li>
+        <li><a href="jquery-questions.html"><i class="fas fa-dollar-sign"></i> jQuery</a></li>
+      </ul>
+    </li>
+    <li><a href="oracle-apex-quiz.html"><i class="fas fa-circle-question"></i> Quiz</a></li>
+    <li><a href="pdf-resources.html"><i class="fas fa-file-pdf"></i> PDFs</a></li>
+    <li><a href="index.html#about"><i class="fas fa-info-circle"></i> About</a></li>
+    <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions">
+    <!-- Injected by JS based on auth state -->
+  </div>
+</nav>
+
+<div class="page-header">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="page-eyebrow">JavaScript</div>
+    <h1 class="page-title">JavaScript Interview Questions</h1>
+    <p class="page-subtitle">6 questions — Basic to Advanced · Click to expand · + for code &amp; details</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="filter-section">
+    <div class="filter-title"><i class="fas fab fa-js"></i> Filter Questions</div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All (6)</button>
+      <button class="filter-tab" data-filter="basic">Basic (3)</button>
+      <button class="filter-tab" data-filter="intermediate">Intermediate (3)</button>
+      <button class="filter-tab" data-filter="advanced">Advanced (0)</button>
+    </div>
+    <div class="search-wrap">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search JavaScript questions...">
+    </div>
+  </div>
+  <div id="questionsContainer">
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q1. What is the difference between var, let and const?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">var is function-scoped, can be redeclared and re-assigned, and is hoisted to the top of its function (initialized as undefined). let is block-scoped, cannot be redeclared in the same scope, can be re-assigned, and is hoisted but not initialized (temporal dead zone). const is block-scoped, cannot be redeclared or re-assigned after declaration, but object/array contents can be mutated. Modern JavaScript best practice: use const by default, let when reassignment is needed, never var.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// var: function-scoped, hoisted
+function example() {
+  console.log(x); // undefined (hoisted)
+  var x = 10;
+  if (true) {
+    var x = 20; // same x! overwrites
+  }
+  console.log(x); // 20
+}
+
+// let: block-scoped
+function modern() {
+  let y = 10;
+  if (true) {
+    let y = 20; // different y (block scope)
+    console.log(y); // 20
+  }
+  console.log(y); // 10
+}
+
+// const: cannot reassign
+const MAX = 100;
+// MAX = 200; // TypeError!
+
+const obj = { name: 'Alice' };
+obj.name = 'Bob'; // OK: mutating object, not reassigning const
+obj.salary = 50000; // OK: adding property
+console.log(obj); // { name: 'Bob', salary: 50000 }</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>var is function-scoped, can be redeclared and re-assigned, and is hoisted to the top of its function (initialized as undefined).</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q2. What are arrow functions and how do they differ from regular functions?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Arrow functions are a concise syntax for writing functions introduced in ES6. Key differences from regular functions: arrow functions do not have their own this binding (they inherit this from the enclosing scope), they cannot be used as constructors (no new keyword), they have no arguments object, and they cannot be used as generator functions. Arrow functions are ideal for callbacks and methods where this context matters, like event handlers and array methods.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// Regular function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow function equivalents
+const add = (a, b) =&gt; a + b;          // implicit return
+const square = n =&gt; n * n;            // single param, no parens needed
+const greet = () =&gt; 'Hello World';    // no params
+const getObj = () =&gt; ({ name: 'Alice' }); // return object literal
+
+// this binding difference
+const timer = {
+  count: 0,
+  // Regular: 'this' is undefined in strict mode callback
+  startBad: function() {
+    setTimeout(function() {
+      this.count++; // 'this' is window/undefined!
+    }, 1000);
+  },
+  // Arrow: inherits 'this' from startGood
+  startGood: function() {
+    setTimeout(() =&gt; {
+      this.count++; // 'this' is timer object ✓
+    }, 1000);
+  }
+};
+
+// Array methods: arrow functions shine
+const salaries = [50000, 62000, 55000];
+const doubled  = salaries.map(s =&gt; s * 2);
+const high     = salaries.filter(s =&gt; s &gt; 55000);</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Arrow functions are a concise syntax for writing functions introduced in ES6.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="intermediate">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q3. What is a Promise and how do you use async/await?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">A Promise represents a value that may not be available yet — it is either pending, fulfilled (resolved), or rejected. Promises replaced callback hell for asynchronous code. async/await is syntactic sugar over Promises making async code look synchronous. An async function always returns a Promise. await pauses execution until the Promise settles. Use try/catch for error handling with async/await. This is widely used in APEX's apex.server.process callbacks and fetch API calls.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// Promise
+function fetchEmployee(id) {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      if (id &gt; 0) resolve({ id, name: 'Alice', salary: 50000 });
+      else reject(new Error('Invalid ID'));
+    }, 1000);
+  });
+}
+
+// Using .then/.catch
+fetchEmployee(101)
+  .then(emp  =&gt; console.log('Found:', emp.name))
+  .catch(err =&gt; console.error('Error:', err.message));
+
+// async/await (cleaner)
+async function loadEmployee(id) {
+  try {
+    const emp = await fetchEmployee(id);
+    console.log('Name:', emp.name);
+    console.log('Salary:', emp.salary);
+    return emp;
+  } catch (err) {
+    console.error('Failed:', err.message);
+  }
+}
+
+// APEX: apex.server.process with async/await
+async function saveRecord() {
+  const result = await apex.server.process('SAVE_EMP', {
+    pageItems: '#P1_EMP_NAME,#P1_SALARY'
+  });
+  apex.message.showPageSuccess('Saved: ' + result.emp_id);
+}</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>A Promise represents a value that may not be available yet — it is either pending, fulfilled (resolved), or rejected.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q4. What is the DOM and how do you manipulate it?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The DOM (Document Object Model) is a programming interface that represents an HTML document as a tree of objects. Every HTML element, attribute, and text node is a DOM node. JavaScript can read and modify the DOM to dynamically update pages. Key methods include querySelector/querySelectorAll (find elements), createElement (create new elements), appendChild/insertBefore (add to DOM), removeChild/remove (delete), setAttribute, classList, and innerHTML/textContent. In APEX, most DOM manipulation happens via Dynamic Actions.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// Find elements
+const header   = document.getElementById('main-header');
+const buttons  = document.querySelectorAll('.action-btn');
+const firstBtn = document.querySelector('.action-btn');
+
+// Read/modify content
+console.log(header.textContent);          // read text
+header.textContent  = 'New Title';         // set text
+header.innerHTML    = '&lt;em&gt;Styled&lt;/em&gt;';   // set HTML
+header.style.color  = '#2d6446';          // set style
+
+// Classes
+header.classList.add('active');
+header.classList.remove('hidden');
+header.classList.toggle('expanded');
+header.classList.contains('active');      // true/false
+
+// Create and add elements
+const card = document.createElement('div');
+card.className   = 'employee-card';
+card.dataset.id  = '101';
+card.textContent = 'Alice Johnson';
+document.getElementById('emp-list').appendChild(card);
+
+// Remove element
+card.remove();
+
+// APEX: get item value via DOM
+const deptId = document.getElementById('P1_DEPT_ID').value;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>The DOM (Document Object Model) is a programming interface that represents an HTML document as a tree of objects.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="intermediate">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q5. What are JavaScript closures?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">A closure is a function that has access to variables from its outer (enclosing) scope even after the outer function has returned. Closures are created every time a function is created in JavaScript. They are used for data privacy (module pattern), factory functions, memoization, and event handlers that need to reference outer variables. Understanding closures is crucial for writing APEX Dynamic Action JavaScript and maintaining state in callbacks.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// Basic closure
+function makeCounter(start = 0) {
+  let count = start; // 'count' is enclosed
+  return {
+    increment: () =&gt; ++count,
+    decrement: () =&gt; --count,
+    getCount:  () =&gt; count,
+    reset:     () =&gt; { count = start; }
+  };
+}
+const counter = makeCounter(10);
+console.log(counter.increment()); // 11
+console.log(counter.increment()); // 12
+console.log(counter.decrement()); // 11
+console.log(counter.getCount());  // 11
+// 'count' is private — can't access directly
+
+// Closure in APEX event handler
+function attachSaveHandler(empId, empName) {
+  // empId, empName are enclosed in the click handler
+  document.getElementById('save-btn')
+    .addEventListener('click', function() {
+      // Still has access to empId and empName
+      apex.server.process('SAVE', {
+        x01: empId,
+        x02: empName
+      });
+    });
+}
+attachSaveHandler(101, 'Alice');</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>A closure is a function that has access to variables from its outer (enclosing) scope even after the outer function has returned.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="intermediate">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q6. What is the Fetch API and how do you use it?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The Fetch API is a modern, Promise-based way to make HTTP requests in the browser, replacing the older XMLHttpRequest. fetch() takes a URL and optional options object and returns a Promise that resolves to a Response object. You must call .json(), .text(), or .blob() on the Response to extract the body (which is also a Promise). Fetch does not reject on HTTP error codes (4xx/5xx) — you must check response.ok. In APEX, use apex.server.process for AJAX instead of raw fetch for session handling.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// Basic GET request
+async function getEmployee(id) {
+  const response = await fetch(`/api/employees/${id}`);
+
+  if (!response.ok) {
+    throw new Error(`HTTP error: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+// POST request with JSON body
+async function createEmployee(empData) {
+  const response = await fetch('/api/employees', {
+    method:  'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    },
+    body: JSON.stringify(empData)
+  });
+  return response.json();
+}
+
+// APEX: use apex.server.process (handles session)
+apex.server.process('GET_EMPLOYEE', { x01: empId }, {
+  success: function(data) {
+    $("#P1_EMP_NAME").val(data.emp_name);
+  },
+  error: function(xhr) {
+    console.error('APEX process failed:', xhr.status);
+  }
+});</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>The Fetch API is a modern, Promise-based way to make HTTP requests in the browser, replacing the older XMLHttpRequest.</p></div></div></div>
+  </div>
+</div>
+  
+
+
+<footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><div class="footer-logo-mark">A</div><span class="footer-logo-text">APEX Interview Mastery</span></div>
+        <p class="footer-brand-desc">The most comprehensive preparation platform for Oracle APEX developers. Built with care, for developers who want to land the job.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="oracle-sql.html">Oracle SQL</a></li>
+          <li><a href="plsql.html">PL/SQL</a></li>
+          <li><a href="oracle-apex.html">Oracle APEX</a></li>
+          <li><a href="oracle-apex-quiz.html">APEX Quiz</a></li>
+          <li><a href="pdf-resources.html">PDF Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Frontend</h4>
+        <ul>
+          <li><a href="html-questions.html">HTML</a></li>
+          <li><a href="css-questions.html">CSS</a></li>
+          <li><a href="javascript-questions.html">JavaScript</a></li>
+          <li><a href="jquery-questions.html">jQuery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#login">Request Access</a></li>
+          <li><a href="index.html#admin">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025–2026 APEX Interview Mastery. All rights reserved.</span>
+      <span class="footer-made">Made with <i class="fas fa-heart"></i> for Oracle developers</span>
+    </div>
+  </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var container = document.getElementById('questionsContainer');
+  if (!container) return;
+
+  // Question click - open/close
+  container.addEventListener('click', function(e) {
+    if (e.target.closest('.details-toggle-btn')) return;
+    if (e.target.closest('.rich-cp-btn')) return;
+    var header = e.target.closest('.question-header');
+    if (!header) return;
+    var card    = header.closest('.question-container');
+    if (!card) return;
+    var content = card.querySelector('.question-content');
+    if (!content) return;
+    var icon    = header.querySelector('.question-toggle');
+    var isOpen  = content.style.display === 'block';
+    content.style.display = isOpen ? 'none' : 'block';
+    if (icon) icon.classList.toggle('rotated', !isOpen);
+  });
+
+  // Filter tabs
+  document.querySelectorAll('.filter-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.dataset.filter;
+      document.querySelectorAll('.question-container').forEach(function(card) {
+        card.style.display = (f === 'all' || card.dataset.difficulty === f) ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Search
+  var searchEl = document.getElementById('searchInput');
+  if (searchEl) {
+    searchEl.addEventListener('input', function() {
+      var q = this.value.toLowerCase().trim();
+      document.querySelectorAll('.question-container').forEach(function(card) {
+        card.style.display = (!q || card.textContent.toLowerCase().includes(q)) ? 'block' : 'none';
+      });
+    });
+  }
+});
+
+// Inner + / - toggle
+function toggleDetails(btn) {
+  var body = btn.nextElementSibling;
+  if (!body) return;
+  var isOpen = body.classList.contains('open');
+  if (isOpen) {
+    body.classList.remove('open');
+    btn.innerHTML = '<span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details';
+  } else {
+    body.classList.add('open');
+    btn.innerHTML = '<span class="toggle-icon">&#8722;</span>&nbsp;Hide Details';
+    if (window.Prism) {
+      setTimeout(function() {
+        body.querySelectorAll('code[class*="language-"]').forEach(function(el) {
+          Prism.highlightElement(el);
+        });
+      }, 50);
+    }
+  }
+}
+
+// Copy code
+function copyCode(btn) {
+  var blk = btn.closest('.rich-code-blk');
+  if (!blk) return;
+  var code = blk.querySelector('code').textContent;
+  navigator.clipboard.writeText(code).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = code; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+  });
+  var orig = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+  btn.style.color = '#a8d080';
+  setTimeout(function() { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+}
+</script>
+
+</body>
+</body>
+</html>

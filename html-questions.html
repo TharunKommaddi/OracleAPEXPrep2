@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Interview Questions — APEX Interview Mastery</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <span class="nav-logo-text">APEX Mastery</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="oracle-sql.html"><i class="fas fa-database"></i> Oracle SQL</a></li>
+    <li><a href="plsql.html"><i class="fas fa-code"></i> PL/SQL</a></li>
+    <li><a href="oracle-apex.html"><i class="fas fa-layer-group"></i> APEX</a></li>
+    <li class="nav-dropdown">
+      <a><i class="fas fa-paint-brush"></i> Frontend <i class="fas fa-chevron-down" style="font-size:11px;margin-left:2px"></i></a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="html-questions.html" class="active"><i class="fab fa-html5"></i> HTML</a></li>
+        <li><a href="css-questions.html"><i class="fab fa-css3-alt"></i> CSS</a></li>
+        <li><a href="javascript-questions.html"><i class="fab fa-js"></i> JavaScript</a></li>
+        <li><a href="jquery-questions.html"><i class="fas fa-dollar-sign"></i> jQuery</a></li>
+      </ul>
+    </li>
+    <li><a href="oracle-apex-quiz.html"><i class="fas fa-circle-question"></i> Quiz</a></li>
+    <li><a href="pdf-resources.html"><i class="fas fa-file-pdf"></i> PDFs</a></li>
+    <li><a href="index.html#about"><i class="fas fa-info-circle"></i> About</a></li>
+    <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions">
+    <!-- Injected by JS based on auth state -->
+  </div>
+</nav>
+
+<div class="page-header">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="page-eyebrow">HTML5</div>
+    <h1 class="page-title">HTML Interview Questions</h1>
+    <p class="page-subtitle">12 questions — Basic to Advanced · Click to expand · + for code &amp; details</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="filter-section">
+    <div class="filter-title"><i class="fas fab fa-html5"></i> Filter Questions</div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All (12)</button>
+      <button class="filter-tab" data-filter="basic">Basic (8)</button>
+      <button class="filter-tab" data-filter="intermediate">Intermediate (4)</button>
+      <button class="filter-tab" data-filter="advanced">Advanced (0)</button>
+    </div>
+    <div class="search-wrap">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search HTML questions...">
+    </div>
+  </div>
+  <div id="questionsContainer">
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q1. What is HTML and what does it stand for?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">HTML stands for HyperText Markup Language. It is the standard language for creating web pages. HTML describes the structure and content of a web page using a system of elements represented by tags. Browsers read HTML documents and render them visually. HTML is not a programming language — it is a markup language that annotates text so browsers know how to display it.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello World&lt;/h1&gt;
+  &lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+  &lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>HTML stands for HyperText Markup Language.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q2. What is the difference between block-level and inline elements?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Block-level elements start on a new line and take up the full width available. Examples include div, p, h1-h6, ul, ol, table, form, and section. Inline elements do not start on a new line and only take as much width as their content needs. Examples include span, a, strong, em, img, input, and label. Block elements can contain both block and inline elements, while inline elements should only contain inline content.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;!-- Block elements: full width, new line --&gt;
+&lt;div&gt;I am a block div&lt;/div&gt;
+&lt;p&gt;I am a block paragraph&lt;/p&gt;
+&lt;h2&gt;I am a block heading&lt;/h2&gt;
+
+&lt;!-- Inline elements: flow with text --&gt;
+&lt;p&gt;
+  This text has &lt;strong&gt;bold&lt;/strong&gt; and
+  &lt;em&gt;italic&lt;/em&gt; and a
+  &lt;a href="#"&gt;link&lt;/a&gt; inline.
+&lt;/p&gt;
+
+&lt;!-- CSS can change display type --&gt;
+&lt;style&gt;
+  span { display: block; }  /* make inline → block */
+  div  { display: inline; } /* make block → inline */
+&lt;/style&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Block-level elements start on a new line and take up the full width available.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q3. What are semantic HTML elements and why are they important?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Semantic HTML elements clearly describe their meaning to both the browser and the developer. Examples include header, nav, main, article, section, aside, footer, figure, figcaption, time, and address. They improve accessibility (screen readers understand the structure), SEO (search engines rank content better), and code readability. Non-semantic elements like div and span have no inherent meaning — they are generic containers.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;!-- Non-semantic (avoid) --&gt;
+&lt;div id="header"&gt;...&lt;/div&gt;
+&lt;div id="nav"&gt;...&lt;/div&gt;
+&lt;div id="content"&gt;...&lt;/div&gt;
+
+&lt;!-- Semantic (correct) --&gt;
+&lt;header&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/about"&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Article Title&lt;/h1&gt;
+    &lt;p&gt;Content here...&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;aside&gt;Related links&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;&amp;copy; 2025 APEX Mastery&lt;/footer&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Semantic HTML elements clearly describe their meaning to both the browser and the developer.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q4. What is the difference between id and class attributes?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The id attribute assigns a unique identifier to an element — it must be unique within the entire page and can only be applied to one element. The class attribute assigns one or more class names to an element and can be shared by multiple elements on the page. In CSS, id is targeted with # selector (higher specificity) and class with . selector. In JavaScript, getElementById returns a single element while getElementsByClassName returns a collection.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;!-- id: unique, one element only --&gt;
+&lt;div id="main-header"&gt;Unique Header&lt;/div&gt;
+
+&lt;!-- class: reusable, multiple elements --&gt;
+&lt;div class="card highlighted"&gt;Card 1&lt;/div&gt;
+&lt;div class="card"&gt;Card 2&lt;/div&gt;
+&lt;div class="card highlighted"&gt;Card 3&lt;/div&gt;
+
+&lt;style&gt;
+  #main-header { background: #2d6446; color: white; }
+  .card        { border: 1px solid #ccc; padding: 16px; }
+  .highlighted { border-color: #2d6446; font-weight: bold; }
+&lt;/style&gt;
+
+&lt;script&gt;
+  // id: returns one element
+  document.getElementById('main-header').style.color = 'white';
+  // class: returns collection
+  document.querySelectorAll('.card').forEach(c =&gt; c.style.margin = '8px');
+&lt;/script&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>The id attribute assigns a unique identifier to an element — it must be unique within the entire page and can only be applied to one element.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q5. What are HTML data attributes?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">HTML data attributes allow you to store custom data directly on HTML elements using the data-* format. Any attribute starting with data- followed by at least one character is a valid data attribute. They are accessed in JavaScript via the dataset property. Data attributes are useful for storing configuration, IDs, or state information on DOM elements without using hidden inputs or global variables — a common pattern in APEX applications.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;!-- Store extra info on elements --&gt;
+&lt;div class="employee-card"
+     data-emp-id="101"
+     data-dept="Engineering"
+     data-salary="50000"&gt;
+  Alice Johnson
+&lt;/div&gt;
+
+&lt;button class="delete-btn" data-record-id="101" data-table="employees"&gt;
+  Delete
+&lt;/button&gt;
+
+&lt;script&gt;
+  // Read data attributes
+  const card = document.querySelector('.employee-card');
+  console.log(card.dataset.empId);   // '101' (camelCase)
+  console.log(card.dataset.dept);    // 'Engineering'
+
+  // In APEX: useful for dynamic actions
+  const btn = document.querySelector('.delete-btn');
+  const id  = btn.getAttribute('data-record-id'); // '101'
+&lt;/script&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>HTML data attributes allow you to store custom data directly on HTML elements using the data-* format.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q6. What is the difference between HTML forms GET and POST methods?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">GET appends form data to the URL as query parameters and is used for data retrieval — bookmarkable, cacheable, limited data size, visible in browser history. POST sends form data in the HTTP request body — used for creating/updating data, supports large amounts of data, not cached, not visible in URL. In APEX, all page submissions use POST to protect session state. GET is used for search forms where the URL should be shareable.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;!-- GET: data in URL - good for search/filter --&gt;
+&lt;form method="GET" action="search.html"&gt;
+  &lt;input type="text" name="q" placeholder="Search..."&gt;
+  &lt;button type="submit"&gt;Search&lt;/button&gt;
+&lt;/form&gt;
+&lt;!-- Result URL: search.html?q=oracle+apex --&gt;
+
+&lt;!-- POST: data in body - good for sensitive/large data --&gt;
+&lt;form method="POST" action="save-employee"&gt;
+  &lt;input type="text"     name="emp_name" required&gt;
+  &lt;input type="number"   name="salary"&gt;
+  &lt;input type="password" name="pin"&gt;  &lt;!-- hidden in POST --&gt;
+  &lt;button type="submit"&gt;Save&lt;/button&gt;
+&lt;/form&gt;
+&lt;!-- Data NOT visible in URL --&gt;
+
+&lt;!-- APEX always uses POST for page submissions --&gt;
+&lt;form method="POST" action="wwv_flow.accept"&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>GET appends form data to the URL as query parameters and is used for data retrieval — bookmarkable, cacheable, limited data size, visible in browser history.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q7. What is the purpose of the DOCTYPE declaration?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The DOCTYPE declaration tells the browser which version of HTML the document uses, ensuring it renders in standards mode rather than quirks mode. In HTML5, the DOCTYPE is simply &lt;!DOCTYPE html&gt; — case-insensitive and much simpler than older HTML versions which required long DTD URLs. Without a DOCTYPE, browsers enter quirks mode and may render pages inconsistently across browsers. Always include DOCTYPE as the very first line of every HTML file.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;!-- HTML5 DOCTYPE (always use this) --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Content&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- Old HTML 4.01 DOCTYPE (don't use) --&gt;
+&lt;!-- &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd"&gt; --&gt;
+
+&lt;!-- Without DOCTYPE: browser enters QUIRKS MODE --&gt;
+&lt;!-- Inconsistent box model, layout bugs --&gt;
+&lt;!-- Always put DOCTYPE on line 1, before &lt;html&gt; --&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>The DOCTYPE declaration tells the browser which version of HTML the document uses, ensuring it renders in standards mode rather than quirks mode.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="basic">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q8. What are meta tags and what are they used for?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">basic</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">Meta tags provide metadata about the HTML document. They go inside the head element and are not displayed on the page. Common meta tags include charset (character encoding), viewport (mobile scaling), description (SEO page description), keywords (SEO), author, robots (search engine indexing instructions), and Open Graph tags (social media preview). The viewport meta tag is essential for responsive web design.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;head&gt;
+  &lt;!-- Character encoding --&gt;
+  &lt;meta charset="UTF-8"&gt;
+
+  &lt;!-- Mobile/responsive viewport --&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+  &lt;!-- SEO --&gt;
+  &lt;meta name="description" content="Oracle APEX interview prep platform"&gt;
+  &lt;meta name="keywords"    content="Oracle APEX, PL/SQL, SQL, interview"&gt;
+  &lt;meta name="author"      content="Tharun K"&gt;
+
+  &lt;!-- Prevent search engine indexing (staging) --&gt;
+  &lt;meta name="robots" content="noindex, nofollow"&gt;
+
+  &lt;!-- Social media (Open Graph) --&gt;
+  &lt;meta property="og:title"       content="APEX Interview Mastery"&gt;
+  &lt;meta property="og:description" content="Prep for Oracle APEX interviews"&gt;
+  &lt;meta property="og:image"       content="/images/preview.png"&gt;
+
+  &lt;!-- Refresh page every 30 seconds --&gt;
+  &lt;meta http-equiv="refresh" content="30"&gt;
+&lt;/head&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>Meta tags provide metadata about the HTML document.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="intermediate">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q9. What is the difference between link and script tag placements?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">CSS link tags should go in the head so styles are applied before content renders, preventing Flash of Unstyled Content (FOUC). Script tags should go just before the closing body tag by default, because JavaScript blocks HTML parsing when encountered. Alternatively, use the async attribute to download script without blocking, or defer to download without blocking and execute after HTML is parsed. In APEX, Universal Theme loads CSS in head and JS before body closing tag.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;!-- CSS: ALWAYS in &lt;head&gt; to prevent FOUC --&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;link rel="stylesheet" href="https://cdn.example.com/lib.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Content loads styled&lt;/h1&gt;
+
+  &lt;!-- JS options --&gt;
+
+  &lt;!-- 1. Before &lt;/body&gt;: safe default --&gt;
+  &lt;script src="app.js"&gt;&lt;/script&gt;
+
+  &lt;!-- 2. async: downloads in parallel, executes immediately --&gt;
+  &lt;script src="analytics.js" async&gt;&lt;/script&gt;
+
+  &lt;!-- 3. defer: downloads in parallel, executes after HTML parsed --&gt;
+  &lt;script src="main.js" defer&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>CSS link tags should go in the head so styles are applied before content renders, preventing Flash of Unstyled Content (FOUC).</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="intermediate">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q10. What are ARIA attributes and why are they important?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">ARIA (Accessible Rich Internet Applications) attributes extend HTML to improve accessibility for users with disabilities using screen readers and assistive technology. Key attributes include role (defines element purpose), aria-label (provides accessible name), aria-hidden (hides from screen readers), aria-expanded (toggle state), aria-live (announces dynamic content), and aria-describedby (links description). APEX Universal Theme generates many ARIA attributes automatically, but custom components need them added manually.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;!-- aria-label: accessible name --&gt;
+&lt;button aria-label="Close dialog"&gt;&lt;i class="fas fa-times"&gt;&lt;/i&gt;&lt;/button&gt;
+
+&lt;!-- aria-expanded: toggle state --&gt;
+&lt;button aria-expanded="false" aria-controls="menu"&gt;
+  Menu
+&lt;/button&gt;
+&lt;ul id="menu" hidden&gt;...&lt;/ul&gt;
+
+&lt;!-- aria-hidden: hide decorative content --&gt;
+&lt;i class="fas fa-star" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span&gt;4.5 stars&lt;/span&gt;
+
+&lt;!-- aria-live: announce dynamic changes --&gt;
+&lt;div aria-live="polite" id="status-msg"&gt;
+  &lt;!-- Updated content announced to screen reader --&gt;
+&lt;/div&gt;
+
+&lt;!-- role: semantic meaning for custom elements --&gt;
+&lt;div role="alert" aria-live="assertive"&gt;
+  Error: Please fill in all required fields.
+&lt;/div&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>ARIA (Accessible Rich Internet Applications) attributes extend HTML to improve accessibility for users with disabilities using screen readers and assistive technology.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="intermediate">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q11. What is the HTML Canvas element and how is it used?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">The canvas element provides a resolution-dependent bitmap canvas for rendering 2D graphics, animations, and interactive content using JavaScript. It is a container — by itself it displays nothing. You get a 2D rendering context using getContext('2d') and draw using methods like fillRect, arc, drawImage, fillText, and beginPath. Canvas is used for charts, games, image manipulation, and data visualisations. It differs from SVG which is vector-based and in the DOM.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">HTML/JS</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">HTML/JS</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-markup">&lt;canvas id="myChart" width="400" height="200"&gt;&lt;/canvas&gt;
+
+&lt;script&gt;
+  const canvas  = document.getElementById('myChart');
+  const ctx     = canvas.getContext('2d');
+
+  // Draw salary bar chart
+  const data    = [50000, 62000, 55000, 70000];
+  const names   = ['Alice','Bob','Carol','Dave'];
+  const maxSal  = Math.max(...data);
+  const barW    = 60;
+
+  data.forEach((sal, i) =&gt; {
+    const barH = (sal / maxSal) * 150;
+    const x    = i * 90 + 30;
+    const y    = 180 - barH;
+
+    // Draw bar
+    ctx.fillStyle = '#2d6446';
+    ctx.fillRect(x, y, barW, barH);
+
+    // Draw label
+    ctx.fillStyle = '#1c1208';
+    ctx.fillText(names[i], x + 5, 195);
+    ctx.fillText('$' + (sal/1000) + 'k', x + 5, y - 5);
+  });
+&lt;/script&gt;</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>The canvas element provides a resolution-dependent bitmap canvas for rendering 2D graphics, animations, and interactive content using JavaScript.</p></div></div></div>
+  </div>
+</div>
+
+<div class="question-container" data-difficulty="intermediate">
+  <div class="question-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="question-text">Q12. What is the difference between localStorage, sessionStorage and cookies?</div>
+    <div class="question-details">
+      <span class="difficulty-badge" style="background:#fef9c3;color:#713f12;border:1px solid #fde68a">intermediate</span>
+      <div class="question-toggle"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+  <div class="question-content" style="display:none;" aria-hidden="true">
+    <div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon ans"><i class="fas fa-lightbulb"></i></div><span class="rich-lbl">Answer</span></div><div class="rich-s-body" style="padding:16px 18px"><p class="ans-txt">localStorage stores data with no expiration — it persists until explicitly cleared, is accessible across browser tabs/windows for the same origin, and stores up to 5MB. sessionStorage stores data only for the duration of the browser tab session — closing the tab clears it, not shared between tabs. Cookies are sent with every HTTP request to the server, have an expiration date, size limit of ~4KB, and can be HttpOnly (JS cannot read) and Secure. In APEX, session state replaces most need for cookies.</p></div></div>
+    <button class="details-toggle-btn" onclick="toggleDetails(this)">
+      <span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details
+    </button>
+    <div class="details-body"><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon code"><i class="fas fa-code"></i></div><span class="rich-lbl">Code</span><span class="rich-sub">JavaScript</span></div><div class="rich-s-body" style="padding:0"><div class="rich-code-blk"><div class="rich-code-bar"><span class="rich-lang-tag">JavaScript</span><button class="rich-cp-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div><pre><code class="language-javascript">// localStorage: persists across sessions
+localStorage.setItem('theme', 'dark');
+localStorage.setItem('lang',  'en');
+const theme = localStorage.getItem('theme'); // 'dark'
+localStorage.removeItem('theme');
+localStorage.clear(); // remove all
+
+// sessionStorage: only for this tab/session
+sessionStorage.setItem('cart_count', '3');
+const count = sessionStorage.getItem('cart_count'); // '3'
+// Gone when tab closes
+
+// Cookies: sent with every request
+document.cookie = 'user=tharun; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/';
+document.cookie = 'pref=dark; SameSite=Strict; Secure; HttpOnly';
+
+// Comparison
+// localStorage:   5MB | No expiry | Same origin | Not sent to server
+// sessionStorage: 5MB | Tab only  | Not shared  | Not sent to server
+// Cookie:        4KB  | Expiry    | Sent to server | HttpOnly option</code></pre></div></div></div><div class="rich-section"><div class="rich-s-hdr"><div class="rich-icon res"><i class="fas fa-circle-check"></i></div><span class="rich-lbl">Output / Result</span><span class="rich-sub">expected</span></div><div class="rich-s-body" style="padding:16px 18px"><div class="state-pill after"><i class="fas fa-circle-check"></i> After</div><div class="rich-tbl-wrap" style="margin-top:10px"><table class="rich-tbl"><thead><tr><th>EMP_ID</th><th>EMP_NAME</th><th>DEPT_ID</th><th>SALARY</th></tr></thead><tbody><tr><td class="">101</td><td class="">Alice Johnson</td><td class="">10</td><td class="">50,000</td></tr><tr><td class="">102</td><td class="">Bob Smith</td><td class="">20</td><td class="">62,000</td></tr><tr><td class="">103</td><td class="">Carol White</td><td class="">10</td><td class="">55,000</td></tr><tr><td class="">104</td><td class="">Dave Brown</td><td class="">20</td><td class="">70,000</td></tr></tbody></table></div><p class="rich-note" style="margin-top:8px"><i class="fas fa-info-circle"></i> All 4 rows returned from employees table</p></div></div><div class="rich-takeaway"><div class="rich-tk-icon"><i class="fas fa-bolt"></i></div><div class="rich-tk-body"><h4>Key Takeaway</h4><p>localStorage stores data with no expiration — it persists until explicitly cleared, is accessible across browser tabs/windows for the same origin, and stores up to 5MB.</p></div></div></div>
+  </div>
+</div>
+  
+
+
+<footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><div class="footer-logo-mark">A</div><span class="footer-logo-text">APEX Interview Mastery</span></div>
+        <p class="footer-brand-desc">The most comprehensive preparation platform for Oracle APEX developers. Built with care, for developers who want to land the job.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="oracle-sql.html">Oracle SQL</a></li>
+          <li><a href="plsql.html">PL/SQL</a></li>
+          <li><a href="oracle-apex.html">Oracle APEX</a></li>
+          <li><a href="oracle-apex-quiz.html">APEX Quiz</a></li>
+          <li><a href="pdf-resources.html">PDF Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Frontend</h4>
+        <ul>
+          <li><a href="html-questions.html">HTML</a></li>
+          <li><a href="css-questions.html">CSS</a></li>
+          <li><a href="javascript-questions.html">JavaScript</a></li>
+          <li><a href="jquery-questions.html">jQuery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#login">Request Access</a></li>
+          <li><a href="index.html#admin">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2027 APEX Interview Mastery. All rights reserved.</span>
+      <span class="footer-made">Made with <i class="fas fa-heart"></i> for Oracle developers</span>
+    </div>
+  </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var container = document.getElementById('questionsContainer');
+  if (!container) return;
+
+  // Question click - open/close
+  container.addEventListener('click', function(e) {
+    if (e.target.closest('.details-toggle-btn')) return;
+    if (e.target.closest('.rich-cp-btn')) return;
+    var header = e.target.closest('.question-header');
+    if (!header) return;
+    var card    = header.closest('.question-container');
+    if (!card) return;
+    var content = card.querySelector('.question-content');
+    if (!content) return;
+    var icon    = header.querySelector('.question-toggle');
+    var isOpen  = content.style.display === 'block';
+    content.style.display = isOpen ? 'none' : 'block';
+    if (icon) icon.classList.toggle('rotated', !isOpen);
+  });
+
+  // Filter tabs
+  document.querySelectorAll('.filter-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.dataset.filter;
+      document.querySelectorAll('.question-container').forEach(function(card) {
+        card.style.display = (f === 'all' || card.dataset.difficulty === f) ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Search
+  var searchEl = document.getElementById('searchInput');
+  if (searchEl) {
+    searchEl.addEventListener('input', function() {
+      var q = this.value.toLowerCase().trim();
+      document.querySelectorAll('.question-container').forEach(function(card) {
+        card.style.display = (!q || card.textContent.toLowerCase().includes(q)) ? 'block' : 'none';
+      });
+    });
+  }
+});
+
+// Inner + / - toggle
+function toggleDetails(btn) {
+  var body = btn.nextElementSibling;
+  if (!body) return;
+  var isOpen = body.classList.contains('open');
+  if (isOpen) {
+    body.classList.remove('open');
+    btn.innerHTML = '<span class="toggle-icon">+</span>&nbsp;Show Code &amp; Details';
+  } else {
+    body.classList.add('open');
+    btn.innerHTML = '<span class="toggle-icon">&#8722;</span>&nbsp;Hide Details';
+    if (window.Prism) {
+      setTimeout(function() {
+        body.querySelectorAll('code[class*="language-"]').forEach(function(el) {
+          Prism.highlightElement(el);
+        });
+      }, 50);
+    }
+  }
+}
+
+// Copy code
+function copyCode(btn) {
+  var blk = btn.closest('.rich-code-blk');
+  if (!blk) return;
+  var code = blk.querySelector('code').textContent;
+  navigator.clipboard.writeText(code).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = code; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+  });
+  var orig = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+  btn.style.color = '#a8d080';
+  setTimeout(function() { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+}
+</script>
+
+</body>
+</body>
+</html>
